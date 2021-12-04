@@ -1,0 +1,27 @@
+---
+- name: Creating apt keys
+  apt_key:
+    id: "{{ item.id }}"
+    state: "{{ item.state }}"
+    url: "{{ item.url }}"
+  when: 
+    - item.id != 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26'
+    - item.id != 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
+  loop: "{{ keys }}"
+#  register: result
+
+- name: Creating apt keys only available from keyservers
+  apt_key:
+    id: "{{ item.id }}"
+    state: "{{ item.state }}"
+    keyserver: "{{ item.keyserver }}"
+  when: 
+    - item.id == 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26' or 
+      item.id == 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
+  loop: "{{ keys }}"
+#  register: result
+
+# - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/
+#   debug:
+#     msg:"
+#       - "{{ result }}

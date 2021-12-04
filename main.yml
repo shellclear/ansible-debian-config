@@ -1,0 +1,7 @@
+---
+- name: Configuring debian operational system
+  hosts: localhost
+  gather_facts: no
+
+- name: Include packageManager/keys playbook
+  import_playbook: "packageManager/keys/main.yml"

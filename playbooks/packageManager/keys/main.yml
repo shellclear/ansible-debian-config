@@ -1,0 +1,16 @@
+---
+- name: Configuring apt keys
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - name: Import the list of repository keys from the keyList.yml file
+      include_vars:
+        file: ./keyList.yml
+
+  tasks:
+    - name: Configuring the list of keys
+      include: ./keyAdd.yml
+      when: keys is defined
+      
