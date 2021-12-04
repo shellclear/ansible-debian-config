@@ -8,3 +8,6 @@
 
 - name: Include packageManager/repositories playbook
   import_playbook: "packageManager/repositories/main.yml"
+
+- name: Include packageManager/packages playbook
+  import_playbook: "packageManager/packages/main.yml"

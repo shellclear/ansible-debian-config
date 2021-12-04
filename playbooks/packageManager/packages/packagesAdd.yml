@@ -1,0 +1,15 @@
+---
+- name: Installing debian packages
+  apt:
+    force_apt_get: yes
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  register: result
+  retries: 10
+  until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
+
+- name: DEBUG - Installing debian packages
+  debug:
+    msg:
+      - "{{ result }}"

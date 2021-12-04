@@ -1,0 +1,16 @@
+---
+- name: Configuring debian packages
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - name: Import the list of packages to install from the packagesList.yml file
+      include_vars:
+        file: ./packagesList.yml
+
+  tasks:
+    - name: Configuring the list of keys
+      include: ./packagesAdd.yml
+      when: packages is defined
+      
