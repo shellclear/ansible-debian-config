@@ -1,0 +1,15 @@
+---
+- name: Creating additional repository files on /etc/apt/sources.list.d/ folder
+  apt_repository:
+    filename: "{{ item.name }}"
+    repo: "{{ item.repository }}"
+    state: "{{ item.state }}"
+    mode: 0644
+    update_cache: no
+  loop: "{{ repositories }}"
+#  register: result
+
+# - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/
+#   debug:
+#     msg:
+#       - "{{ result }}"

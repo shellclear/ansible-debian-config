@@ -5,3 +5,6 @@
 
 - name: Include packageManager/keys playbook
   import_playbook: "packageManager/keys/main.yml"
+
+- name: Include packageManager/repositories playbook
+  import_playbook: "packageManager/repositories/main.yml"

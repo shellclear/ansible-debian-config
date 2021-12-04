@@ -1,0 +1,16 @@
+---
+- name: Configuring apt repositories 
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - name: Import the list of repositories from the repoList.yml file
+      include_vars:
+        file: ./repoList.yml
+
+  tasks:
+    - name: Configuring the list of repositories
+      include: ./repoAdd.yml
+      when: repositories is defined
+      
