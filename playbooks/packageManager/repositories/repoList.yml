@@ -1,0 +1,183 @@
+---
+repositories:
+  - name: anydesk-stable
+    repository: 'deb http://deb.anydesk.com/ all main'
+    state: absent
+  
+  - name: atom
+    repository: 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main'
+    state: absent
+
+  - name: dbeaver
+    repository: 'deb https://dbeaver.io/debs/dbeaver-ce /'
+    state: present
+
+  - name: debian-backports
+    repository: 'deb https://deb.debian.org/debian bullseye-backports main contrib non-free'   
+    state: absent 
+
+  - name: debian-buster-backports
+    repository: 'deb https://deb.debian.org/debian buster-backports main contrib non-free'
+    state: absent
+
+  - name: debian-buster
+    repository: 'deb https://deb.debian.org/debian buster main contrib non-free'
+    state: absent
+
+  - name: debian-experimental
+    repository: 'deb https://deb.debian.org/debian experimental main contrib non-free'
+    state: absent
+
+  - name: debian-irontec
+    repository: 'deb http://packages.irontec.vpn/debian buster main extra'
+    state: absent
+
+  - name: debian-proposed-updates
+    repository: 'deb https://deb.debian.org/debian buster-proposed-updates main contrib non-free'
+    state: absent
+
+  - name: debian-testing
+    repository: 'deb https://deb.debian.org/debian testing main contrib non-free'
+    state: absent
+
+  - name: debian-unstable
+    repository: 'deb https://deb.debian.org/debian unstable main contrib non-free'
+    state: absent
+
+  - name: docker-ce
+    repository: 'deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable'
+    state: present
+                # Docker CE - stable, test e edge components                                                               
+                # deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable
+                # deb https://artifacts.elastic.co/packages/7.x/apt stable main              
+                # deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main                                                                                                                                                   
+                # deb http://download.opensuse.org/repositories/home:/jgeboski/Debian_9.0 ./    
+
+  - name: elastic-7.x
+    repository: 'deb https://artifacts.elastic.co/packages/7.x/apt stable main'
+    state: absent
+
+  - name: elastic-oss-7.x
+    repository: 'deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main'
+    state: absent
+
+  - name: facebook-purple
+    repository: 'deb http://download.opensuse.org/repositories/home:/jgeboski/Debian_10 ./'
+    state: absent
+
+  - name: gitlab_gitlab-ce
+    repository: 'deb https://packages.gitlab.com/gitlab/gitlab-ce/debian/ buster main'
+    state: absent
+
+  - name: gitlab_gitlab-ee
+    repository: 'deb https://packages.gitlab.com/gitlab/gitlab-ee/debian/ buster main'
+    state: absent
+
+  - name: google-chrome
+    repository: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+    state: present
+
+  - name: helm-stable-debian
+    repository: 'deb https://baltocdn.com/helm/stable/debian/ all main'
+    state: absent
+
+  - name: jitsi-stable
+    repository: 'deb https://download.jitsi.org stable/'
+    state: absent
+
+  - name: lutris
+    repository: 'deb http://download.opensuse.org/repositories/home:/strycore/Debian_11/ /'
+    state: absent
+
+  - name: megasync
+    repository: 'deb https://mega.nz/linux/MEGAsync/Debian_11/ ./'
+    state: present
+
+  - name: mysql
+    repository: 'deb http://repo.mysql.com/apt/debian/ buster mysql-8.0'
+    state: absent
+                # deb http://repo.mysql.com/apt/debian/ buster mysql-5.6
+                # deb http://repo.mysql.com/apt/debian/ buster mysql-5.7
+                # deb http://repo.mysql.com/apt/debian/ buster mysql-8.0
+                # deb http://repo.mysql.com/apt/debian/ buster workbench-6.3
+                # deb http://repo.mysql.com/apt/debian/ buster utilities-1.6
+                # deb http://repo.mysql.com/apt/debian/ buster connector-python-2.1    
+
+  - name: nginx
+    repository: 'deb http://nginx.org/packages/debian buster nginx'
+    state: absent
+                # stable nginx packages
+                # deb http://nginx.org/packages/debian buster nginx
+
+                # mainline nginx packages
+                # deb http://nginx.org/packages/mainline/debian buster nginx    
+
+  - name: openvpn
+    repository: 'deb http://build.openvpn.net/debian/openvpn/stable buster main'       
+    state: absent
+
+  - name: palemoon
+    repository: 'deb http://download.opensuse.org/repositories/home:/stevenpusser/Debian_10/ /'
+    state: absent
+
+  - name: php-sury
+    repository: 'deb https://packages.sury.org/php/ stretch main'
+    state: absent
+
+  - name: puppet-tools
+    repository: 'deb http://apt.puppet.com buster puppet-tools'
+    state: absent
+
+  - name: skype-stable
+    repository: 'deb [arch=amd64] https://repo.skype.com/deb stable main'
+    state: present
+
+  - name: snapshot-jessie
+    repository: 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20180623/ jessie main contrib non-free'
+    state: absent
+
+  - name: spotify
+    repository: 'deb http://repository.spotify.com stable non-free'
+    state: present
+
+  - name: teamview
+    repository: 'deb https://linux.teamviewer.com/deb stable main'
+    state: present
+                #  # #   TeamViewer DEB repository list
+
+                #  # # NOTE: Manual changes to this file
+                #  # #        - prevent it from being updated by TeamViewer package updates
+                #  # #        - will be lost after using the 'teamviewer repo' command
+                #  # #       The original file can be restored with this command:
+                #  # #       cp /opt/teamviewer/tv_bin/script/teamviewer.list /etc/apt/sources.list.d/teamviewer.list
+                #  # #       which has the same effect as 'teamviewer repo default'
+
+                #  # # NOTE: It is preferred to use the following commands to edit this file:
+                #  # #       teamviewer repo                - show current repository configuration
+                #  # #       teamviewer repo default        - restore default configuration
+                #  # #       teamviewer repo disable        - disable the repository
+                #  # #       teamviewer repo stable         - make all regular TeamViewer packages available (default)
+                #  # #       teamviewer repo preview        - additionally, make feature preview packages available
+                #  # #       teamviewer repo development    - additionally, make the latest development packages available                                                                                                            ─────
+
+
+                #deb https://linux.teamviewer.com/deb stable main
+
+                # deb https://linux.teamviewer.com/deb preview main
+                # deb https://linux.teamviewer.com/deb development main
+
+  - name: veeam
+    repository: 'deb [arch=amd64] http://repository.veeam.com/backup/linux/agent/dpkg/debian/public stable veeam'     
+    state: absent
+
+  - name: virtualbox
+    repository: 'deb https://download.virtualbox.org/virtualbox/debian bullseye contrib'  
+    state: present
+
+  - name: vscode
+    repository: 'deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main'
+    state: present
+
+  - name: vscodium
+    repository: 'deb https://download.vscodium.com/debs vscodium main'
+    state: absent
