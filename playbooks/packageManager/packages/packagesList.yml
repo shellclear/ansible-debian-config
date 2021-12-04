@@ -41,7 +41,7 @@ packages:
   - jid
   - jq
   - keepassx
-  - lens
+  # - lens
   - linphone
   - linux-headers-amd64
   - lm-sensors
