@@ -1,0 +1,15 @@
+---
+- name: Configuring crontab
+  hosts: localhost
+  gather_facts: no
+  become: no
+
+  pre_tasks:
+    - name: Import the list of crontab tasks
+      include_vars:
+        file: ./cronList.yml
+
+  tasks:
+    - name: Configuring the list of cron tasks
+      include: ./cronAdd.yml
+      when: crons is defined

@@ -11,3 +11,6 @@
 
 - name: Include packageManager/packages playbook
   import_playbook: "packageManager/packages/main.yml"
+
+- name: Include cron playbook
+  import_playbook: "crontab/main.yml"  
