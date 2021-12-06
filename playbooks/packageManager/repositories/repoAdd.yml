@@ -7,6 +7,8 @@
     mode: 0644
     update_cache: no
   loop: "{{ repositories }}"
+  loop_control:
+    label: "{{ item.repository }}"    
 #  register: result
 
 # - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/
