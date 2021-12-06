@@ -8,6 +8,8 @@
     - item.id != 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26'
     - item.id != 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
   loop: "{{ keys }}"
+  loop_control:
+    label: "{{ item.name }}"  
 #  register: result
 
 - name: Creating apt keys only available from keyservers
@@ -19,6 +21,8 @@
     - item.id == 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26' or 
       item.id == 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
   loop: "{{ keys }}"
+  loop_control:
+    label: "{{ item.name }}"    
 #  register: result
 
 # - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/

@@ -4,124 +4,148 @@ keys:
   - url: 'https://download.docker.com/linux/debian/gpg'
     state: present
     id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    name: docker-ce
 
   # virtualbox
   - url: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
     state: present
     id: B9F8D658297AF3EFC18D5CDFA2F683C52980AECF
+    name: virtualbox
 
   # atom
   - url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
     state: present
     id: 0A0FAB860D48560332EFB581B75442BBDE9E3B09
+    name: atom
 
   # helm
   - url: 'https://baltocdn.com/helm/signing.asc'
     state: present
     id: 81BF832E2F19CD2AA0471959294AC4827C1A168A
+    name: helm
 
   # puppet
   - keyserver: 'hkp://keyserver.ubuntu.com:11371'
     state: present
     id: D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26
+    name: puppet
 
   # mysql
   - keyserver: 'hkp://pgp.mit.edu'
     state: present
     id: A4A9406876FCBD3C456770C88C718D3B5072E1F5
+    name: mysql
 
   # spotify
   - url: 'https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg'
     state: present
     id: F9A211976ED662F00E59361E5E3C45D7B312C643
+    name: spotify
 
   # skype
   - url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
     state: present
     id: D4040146BE3972509FD57FC71F3045A5DF7587C3
+    name: skype
 
   # vscode
   - url: 'https://packages.microsoft.com/keys/microsoft.asc'
     state: present
     id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+    name: vscode
 
   # dbeaver
   - url: 'https://dbeaver.io/debs/dbeaver.gpg.key'
     state: present
     id: 98F5A7CC1ABE72AC3852A007D33A1BD725ED047D
+    name: dbeaver
 
   # google-chrome
   - url: 'https://dl.google.com/linux/linux_signing_key.pub'
     state: present
     id: EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+    name: google-chrome
 
   # elastic-7.x/elastic-oss-7.x
   - url: 'https://artifacts.elastic.co/GPG-KEY-elasticsearch'
     state: present
     id: 46095ACC8548582C1A2699A9D27D666CD88E42B4
+    name: elastic-7.x/elastic-oss-7.x
 
   # lutris
   - url: 'https://download.opensuse.org/repositories/home:strycore/Debian_11/Release.key'    
     state: present
     id: A338F71A89CD06FD5F9718582F7F0DA5FD5B64B9
+    name: lutris
 
   # anydesk
   - url: 'https://keys.anydesk.com/repos/DEB-GPG-KEY'
     state: present
     id: D56311E5FF3B6F39D5A16ABE18DF3741CDFFDE29
+    name: anydesk
 
   # gitlab-ce/gitlab-ee
   - url: 'https://packages.gitlab.com/gitlab/gitlab-ee/gpgkey'
     state: present
     id: F6403F6544A38863DAA0B6E03F01618A51312F3F
+    name: gitlab-ce/gitlab-ee
 
   # nginx
   - url: 'https://nginx.org/keys/nginx_signing.key'
     state: present
     id: 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+    name: nginx
 
   # jitsi
   - url: 'https://download.jitsi.org/jitsi-key.gpg.key'
     state: present
     id: FFD65A0DA2BEBDEB73D44C8BB4D2D216F1FD7806
+    name: jitsi
 
   # openvpn
   - url: 'https://swupdate.openvpn.net/repos/repo-public.gpg'
     state: present
     id: 30EBF4E73CCE63EEE124DD278E6DA8B4E158C569
+    name: openvpn
   
   # php-sury
   - url: 'https://packages.sury.org/php/apt.gpg'
     state: present
     id: 15058500A0235D97F5D10063B188E2B695BD4743
+    name: php-sury
   
   # veeam
   - url: 'https://repository.veeam.com/keys/veeam.gpg'
     state: present
     id: EFAFF6B44E6880EADDD217E47AFDEEB8FBF8A590
+    name: veeam
   
   # teamviwer
   - url: 'https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc'
     state: present
     id: 8CAE012EBFAC38B17A937CD8C5E224500C1289C0
+    name: teamviewer
 
   # vscodium
   - url: 'https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg'
     state: present
     id: 1302DE60231889FE1EBACADC54678CF75A278D9C 
+    name: vscodium
 
   # facebook-purple
   - url: 'https://build.opensuse.org/projects/home:jgeboski/public_key.pub' 
     state: present
     id: 1E7BF737CB8709F0F740625B12C6ADA61C85BB5E      
+    name: facebook-purple
 
   # palemoon
   - url: 'https://download.opensuse.org/repositories/home:stevenpusser/Debian_10/Release.key'
     state: absent
     id: F9611EC6ADCFDD303362217A0FAD31CA8719FCE4
+    name: palemoon
 
   # megasync
   - url: 'https://mega.nz/keys/MEGA_signing.key'
     state: present
     id: 8F208FBF12FEE766AA32AEAF03C3AD3A7F068E5D
-    
+    name: megasync
