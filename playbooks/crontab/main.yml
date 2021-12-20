@@ -11,5 +11,5 @@
 
   tasks:
     - name: Configuring the list of cron tasks
-      include: ./cronAdd.yml
+      include_tasks: ./cronAdd.yml
       when: crons is defined
