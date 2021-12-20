@@ -11,6 +11,6 @@
 
   tasks:
     - name: Configuring the list of keys
-      include: ./keyAdd.yml
+      include_tasks: ./keyAdd.yml
       when: keys is defined
       
