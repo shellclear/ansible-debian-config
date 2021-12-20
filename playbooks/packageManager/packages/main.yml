@@ -11,6 +11,6 @@
 
   tasks:
     - name: Configuring the list of keys
-      include: ./packagesAdd.yml
+      include_tasks: ./packagesAdd.yml
       when: packages is defined
       

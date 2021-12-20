@@ -11,6 +11,6 @@
 
   tasks:
     - name: Configuring the list of repositories
-      include: ./repoAdd.yml
+      include_tasks: ./repoAdd.yml
       when: repositories is defined
       
