@@ -1,0 +1,16 @@
+---
+- name: Configuring flatpak packages
+  hosts: localhost
+  gather_facts: no
+  become: no
+
+  pre_tasks:
+    - name: Import the list of flatpak packages to install from the packagesList.yml file
+      include_vars:
+        file: ./packagesList.yml
+
+  tasks:
+    - name: Configuring the list of flatpak packages to install
+      include_tasks: ./packagesAdd.yml
+      when: packages is defined
+      
