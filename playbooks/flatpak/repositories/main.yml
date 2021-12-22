@@ -1,0 +1,16 @@
+---
+- name: Configuring flatpak repositories 
+  hosts: localhost
+  gather_facts: no
+  become: no
+
+  pre_tasks:
+    - name: Import the list of flatpak repositories from the repoList.yml file
+      include_vars:
+        file: ./repoList.yml
+
+  tasks:
+    - name: Configuring the list of flatpak repositories
+      include_tasks: ./repoAdd.yml
+      when: repositories is defined
+      

@@ -1,0 +1,30 @@
+---
+- name: List of flatpak packages to install
+  debug:
+    msg: "{{ packages }}"
+    
+- name: Installing flatpak packages from flathub
+  flatpak:
+    name: "{{ packages.flathub }}"
+    state: present
+    method: user
+    remote: flathub
+#   register: result
+
+# - name: DEBUG - Installing flatpak packages from flathub
+#   debug:
+#     msg:
+#       - "{{ result }}"
+
+- name: Installing flatpak packages from gnome-nightly
+  flatpak:
+    name: "{{ packages.gnomeNightly }}"
+    state: present
+    method: user
+    remote: gnome-nightly
+#   register: result
+
+# - name: DEBUG - Installing flatpak packages from gnome-nightly
+#   debug:
+#     msg:
+#       - "{{ result }}"

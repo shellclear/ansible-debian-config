@@ -1,0 +1,13 @@
+---
+packages:
+  flathub:
+    - net.sourceforge.Klavaro
+    - com.rafaelmardojai.Blanket
+    - com.stremio.Stremio
+    - io.github.arunsivaramanneo.GPUViewer
+    - org.gnome.DejaDup
+    - org.gnome.gitlab.somas.Apostrophe    
+
+  gnomeNightly:
+    - org.gnome.BoxesDevel
+  

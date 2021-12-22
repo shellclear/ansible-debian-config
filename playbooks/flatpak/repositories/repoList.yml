@@ -1,0 +1,12 @@
+---
+repositories:
+  - name: flathub
+    repository: 'https://flathub.org/repo/flathub.flatpakrepo'
+    state: present
+    method: user
+  
+  - name: gnome-nightly
+    repository: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
+    state: present
+    method: user
+  
