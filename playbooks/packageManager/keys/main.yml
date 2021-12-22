@@ -5,12 +5,12 @@
   become: yes
 
   pre_tasks:
-    - name: Import the list of repository keys from the keyList.yml file
+    - name: Import the list of apt repository keys from the keyList.yml file
       include_vars:
         file: ./keyList.yml
 
   tasks:
-    - name: Configuring the list of keys
+    - name: Configuring the list of apt repo keys
       include_tasks: ./keyAdd.yml
       when: keys is defined
       
