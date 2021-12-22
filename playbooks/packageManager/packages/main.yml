@@ -5,7 +5,7 @@
   become: yes
 
   pre_tasks:
-    - name: Import the list of packages to install from the packagesList.yml file
+    - name: Import the list of debian packages to install from the packagesList.yml file
       include_vars:
         file: ./packagesList.yml
 

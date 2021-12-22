@@ -1,5 +1,5 @@
 ---
-- name: List of packages to install
+- name: List of debian packages to install
   debug:
     msg: "{{ packages }}"
     
