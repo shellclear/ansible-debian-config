@@ -1,5 +1,5 @@
 ---
-- name: Creating additional repository files on /etc/apt/sources.list.d/ folder
+- name: Creating additional apt repository files on /etc/apt/sources.list.d/ folder
   apt_repository:
     filename: "{{ item.name }}"
     repo: "{{ item.repository }}"
@@ -11,7 +11,7 @@
     label: "{{ item.repository }}"    
 #  register: result
 
-# - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/
+# - name: DEBUG - Creating additional apt repository files on /etc/apt/sources.list.d/
 #   debug:
 #     msg:
 #       - "{{ result }}"
