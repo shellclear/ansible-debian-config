@@ -13,4 +13,10 @@
   import_playbook: "packageManager/packages/main.yml"
 
 - name: Include cron playbook
-  import_playbook: "crontab/main.yml"  
+  import_playbook: "crontab/main.yml"
+
+- name: Include flatpak/repositories playbook
+  import_playbook: "flatpak/repositories/main.yml"
+
+- name: Include flatpak/packages playbook
+  import_playbook: "flatpak/packages/main.yml"  
