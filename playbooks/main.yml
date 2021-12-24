@@ -19,4 +19,7 @@
   import_playbook: "flatpak/repositories/main.yml"
 
 - name: Include flatpak/packages playbook
-  import_playbook: "flatpak/packages/main.yml"  
+  import_playbook: "flatpak/packages/main.yml"
+
+- name: Include python packages playbook
+  import_playbook: "pythonVenv/main.yml"    
