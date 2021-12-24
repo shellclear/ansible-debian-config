@@ -1,0 +1,19 @@
+---
+- name: List of Python venvs to create
+  debug:
+    msg: "{{ venvs }}"
+    
+- name: Creating Python venvs
+  pip:
+    name: "{{ item.name }}"
+    virtualenv: "${HOME}/usr/share/python/venv/{{ item }}"
+    virtualenv_command: "python -m venv"
+    state: "{{ item.state }}"
+  loop: "{{ venvs }}"
+#   register: result
+
+# - name: DEBUG - Creating Python venvs
+#   debug:
+#     msg: 
+#       -  "{{ item.stdout_lines }}"
+#   loop: "{{ result.results }}"
