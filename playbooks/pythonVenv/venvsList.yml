@@ -16,4 +16,6 @@ venvs:
       state: present
     - name: yq
       state: present
-  
+    - name: youtube_dl
+      state: present
+              
