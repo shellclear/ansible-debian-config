@@ -1,0 +1,19 @@
+---
+venvs:
+    - name: bpytop
+      state: present
+    - name: awscli
+      state: present
+    - name: httpstat
+      state: present    
+    - name: kcli
+      state: present
+    - name: ngxtop
+      state: present
+    - name: ps_mem
+      state: present
+    - name: s-tui
+      state: present
+    - name: yq
+      state: present
+  
