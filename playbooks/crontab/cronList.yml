@@ -97,7 +97,12 @@ crons:
       - name: "Update minikube"
         state: present
         special_time: reboot
-        job: "sleep 60 && /home/paulo/bin/update-minikube"             
+        job: "sleep 60 && /home/paulo/bin/update-minikube"
+
+      - name: "Disable BIOS fan control"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && sudo /snap/bin/dell-bios-fan-control 0"
 
   # # Its possible to create cron tasks for other users:
   # - user: root <---
