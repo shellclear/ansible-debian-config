@@ -18,4 +18,6 @@ venvs:
       state: present
     - name: youtube_dl
       state: present
+    - name: python-openstackclient
+      state: present
               
