@@ -1,0 +1,19 @@
+---
+- name: Configuring snap packets
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+
+  pre_tasks:
+    # - name: Check snap dependencies
+    #   include_tasks: ./snapDeps.yml
+
+    - name: Import the list of snap packets to install from the venvsList.yml file
+      include_vars:
+        file: ./snapsList.yml
+
+  tasks:
+    - name: Configuring the list of snap packets to install
+      include_tasks: ./snapsAdd.yml
+      when: snaps is defined
+      
