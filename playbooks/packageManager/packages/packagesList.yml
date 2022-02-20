@@ -110,4 +110,6 @@ packages:
   - whois
   - wireshark
   - zram-tools
+  - polychromatic
+  - openrazer-meta
   
