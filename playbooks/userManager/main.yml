@@ -1,0 +1,16 @@
+---
+- name: Configuring userAccount
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - name: Import the list of users from the userList.yml file
+      include_vars:
+        file: ./usersList.yml
+
+  tasks:
+    - name: Configuring the list of users to create
+      include_tasks: ./usersAdd.yml
+      when: users is defined
+      
