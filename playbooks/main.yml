@@ -1,8 +1,4 @@
 ---
-- name: Configuring debian operational system
-  hosts: localhost
-  gather_facts: no
-
 - name: Include packageManager/keys playbook
   import_playbook: "packageManager/keys/main.yml"
 
@@ -26,3 +22,6 @@
 
 - name: Include Snap packages playbook
   import_playbook: "snap/main.yml"
+
+- name: Include users playbook
+  import_playbook: "userManager/main.yml"
