@@ -1,0 +1,21 @@
+---
+- name: List of users to create
+  debug:
+    msg: "{{ users }}"
+    
+- name: Creating users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    comment: "{{ item.comment }}"
+    groups: "{{ item.groups }}"
+    state: "{{ item.state }}"
+  loop: "{{ users }}"
+  loop_control:
+    label: "{{ item.name }} is {{ item.state }}"
+#   register: result
+
+# - name: DEBUG - Creating users
+#   debug:
+#     msg: "{{ item }}"
+#   loop: "{{ result.results }}"
+
