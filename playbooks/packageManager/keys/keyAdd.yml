@@ -5,8 +5,9 @@
     state: "{{ item.state }}"
     url: "{{ item.url }}"
   when: 
-    - item.id != 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26'
-    - item.id != 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
+    - item.name != 'puppet'
+    - item.name != 'mysql'
+    - item.name != 'polychromatic'
   loop: "{{ keys }}"
   loop_control:
     label: "{{ item.name }}"  
@@ -18,8 +19,9 @@
     state: "{{ item.state }}"
     keyserver: "{{ item.keyserver }}"
   when: 
-    - item.id == 'D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26' or 
-      item.id == 'A4A9406876FCBD3C456770C88C718D3B5072E1F5'
+    - item.name == 'puppet' or 
+      item.name == 'mysql' or
+      item.name == 'polychromatic'
   loop: "{{ keys }}"
   loop_control:
     label: "{{ item.name }}"    
