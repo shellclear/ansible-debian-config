@@ -6,12 +6,13 @@
 - name: Creating Python venvs
   pip:
     name: "{{ item.name }}"
-    virtualenv: "${HOME}/usr/share/python/venv/{{ item.name }}"
+    chdir: "${HOME}/usr/share/python/venv"
+    virtualenv: "{{ item.venv }}"
     virtualenv_command: "python -m venv"
     state: "{{ item.state }}"
   loop: "{{ venvs }}"
   loop_control:
-    label: "{{ item.name }} is {{ item.state }}"
+    label: "{{ item.venv }} is {{ item.state }}"
 #   register: result
 
 # - name: DEBUG - Creating Python venvs
