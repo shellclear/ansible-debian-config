@@ -181,3 +181,15 @@ repositories:
   - name: vscodium
     repository: 'deb https://download.vscodium.com/debs vscodium main'
     state: absent
+
+  - name: polychromatic
+    repository: 'deb http://ppa.launchpad.net/polychromatic/stable/ubuntu focal main'
+    state: present
+
+  - name: openrazer
+    repository: 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_11/ /'
+    state: present
+
+  - name: postgresql
+    repository: 'deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main'
+    state: present
