@@ -1,23 +1,47 @@
 ---
 venvs:
-    - name: bpytop
+    - venv: bpytop
       state: present
-    - name: awscli
+      name: 
+        - bpytop      
+    - venv: awscli
       state: present
-    - name: httpstat
+      name: 
+        - awscli
+    - venv: httpstat
       state: present    
-    - name: kcli
+      name: 
+        - httpstat
+    - venv: kcli
       state: present
-    - name: ngxtop
+      name: 
+        - kcli
+    - venv: ngxtop
       state: present
-    - name: ps_mem
+      name: 
+        - ngxtop
+    - venv: ps_mem
       state: present
-    - name: s-tui
+      name: 
+        - ps_mem
+    - venv: s-tui
       state: present
-    - name: yq
+      name: 
+        - s-tui
+    - venv: yq
       state: present
-    - name: youtube_dl
+      name: 
+        - yq
+    - venv: youtube-dl
       state: present
-    - name: python-openstackclient
+      name:
+        - youtube-dl
+    - venv: openstackclient
       state: present
-              
+      name: 
+        - openstackclient
+        - ansible
+    - venv: ansible
+      state: present
+      name:
+        - ansible
