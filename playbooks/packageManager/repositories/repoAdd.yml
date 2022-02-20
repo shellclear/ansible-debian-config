@@ -8,7 +8,7 @@
     update_cache: no
   loop: "{{ repositories }}"
   loop_control:
-    label: "{{ item.repository }}"    
+    label: "{{ item.name }} repo is {{ item.state }}"    
 #  register: result
 
 # - name: DEBUG - Creating additional apt repository files on /etc/apt/sources.list.d/

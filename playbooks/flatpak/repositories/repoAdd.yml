@@ -6,6 +6,8 @@
     state: "{{ item.state }}"
     method: "{{ item.method }}"
   loop: "{{ repositories }}"
+  loop_control:
+    label: "flatpak {{ item.name }} is {{ item.state }}"
   # register: result
 
 # - name: DEBUG - Creating additional flatpak repositories 

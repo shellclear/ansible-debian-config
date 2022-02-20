@@ -15,7 +15,7 @@
     - item.1.special_time is not defined
   loop: "{{ crons | subelements('tasks') }}"
   loop_control:
-    label: "{{ item.1.name }}"
+    label: "{{ item.1.name }} is {{ item.1.state }}"
   # register: result
 
 - name: "Creating cron tasks with special_time"
@@ -30,7 +30,7 @@
     - item.1.special_time is defined
   loop: "{{ crons | subelements('tasks') }}"
   loop_control:
-    label: "{{ item.1.name }}"  
+    label: "{{ item.1.name }} is {{ item.1.state }}"  
   # register: result
 
 # - name: DEBUG - Creating cron tasks

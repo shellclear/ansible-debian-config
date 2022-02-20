@@ -192,4 +192,4 @@ repositories:
 
   - name: postgresql
     repository: 'deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main'
-    state: present
+    state: absent
