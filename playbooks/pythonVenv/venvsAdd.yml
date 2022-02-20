@@ -1,8 +1,4 @@
 ---
-- name: List of Python venvs to create
-  debug:
-    msg: "{{ venvs }}"
-    
 - name: Creating Python venvs
   pip:
     name: "{{ item.name }}"
@@ -12,7 +8,7 @@
     state: "{{ item.state }}"
   loop: "{{ venvs }}"
   loop_control:
-    label: "{{ item.venv }} is {{ item.state }}"
+    label: "{{ item.venv }} venv is {{ item.state }}"
 #   register: result
 
 # - name: DEBUG - Creating Python venvs

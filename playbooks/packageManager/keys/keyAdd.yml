@@ -10,7 +10,7 @@
     - item.name != 'polychromatic'
   loop: "{{ keys }}"
   loop_control:
-    label: "{{ item.name }}"  
+    label: "{{ item.name }} key is {{ item.state }}"  
 #  register: result
 
 - name: Creating apt keys only available from keyservers
@@ -24,7 +24,7 @@
       item.name == 'polychromatic'
   loop: "{{ keys }}"
   loop_control:
-    label: "{{ item.name }}"    
+    label: "{{ item.name }} key is {{ item.state }}"     
 #  register: result
 
 # - name: DEBUG - Creating additional repository files on /etc/apt/sources.list.d/
