@@ -33,7 +33,7 @@ keys:
   # mysql
   - keyserver: 'hkp://pgp.mit.edu'
     state: present
-    id: A4A9406876FCBD3C456770C88C718D3B5072E1F5
+    id: 3A79BD29
     name: mysql
 
   # spotify
@@ -134,7 +134,7 @@ keys:
 
   # facebook-purple
   - url: 'https://build.opensuse.org/projects/home:jgeboski/public_key.pub' 
-    state: present
+    state: absent
     id: 1E7BF737CB8709F0F740625B12C6ADA61C85BB5E      
     name: facebook-purple
 
@@ -149,3 +149,21 @@ keys:
     state: present
     id: 8F208FBF12FEE766AA32AEAF03C3AD3A7F068E5D
     name: megasync
+
+  # polychromatic
+  - keyserver: 'hkp://keyserver.ubuntu.com:11371'
+    state: present
+    id: 96B9CD7C22E2C8C5
+    name: polychromatic
+
+  # openrazer
+  - url: 'https://download.opensuse.org/repositories/hardware:razer/Debian_11/Release.key'
+    state: present
+    id: 062F9FD4D6D11CE4
+    name: openrazer
+
+  # postgresql
+  - url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
+    state: present
+    id: 7FCC7D46ACCC4CF8
+    name: postgresql
