@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: yes
+  tags:
+    - packageManager_keys
 
   pre_tasks:
     - name: Import the list of apt repository keys from the keyList.yml file
