@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: no
+  tags:
+    - pythonVenv
 
   pre_tasks:
     - name: Import the list of venvs to create from the venvsList.yml file

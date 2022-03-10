@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: yes
   become: yes
+  tags:
+    - snap
 
   pre_tasks:
     # - name: Check snap dependencies

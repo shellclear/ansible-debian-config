@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: yes
+  tags:
+  - packageManager_packages
 
   pre_tasks:
     - name: Import the list of debian packages to install from the packagesList.yml file

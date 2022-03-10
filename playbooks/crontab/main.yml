@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: no
+  tags:
+    - crontab
 
   pre_tasks:
     - name: Import the list of crontab tasks
