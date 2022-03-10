@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: no
+  tags:
+    - flatpak_packages
 
   pre_tasks:
     - name: Import the list of flatpak packages to install from the packagesList.yml file

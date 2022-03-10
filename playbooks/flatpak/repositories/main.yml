@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: no
+  tags:
+    - flatpak_repositories
 
   pre_tasks:
     - name: Import the list of flatpak repositories from the repoList.yml file

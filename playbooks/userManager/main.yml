@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   become: yes
+  tags:
+    - userManager
 
   pre_tasks:
     - name: Import the list of users from the userList.yml file
