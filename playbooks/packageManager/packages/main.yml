@@ -7,12 +7,21 @@
   - packageManager_packages
 
   pre_tasks:
-    - name: Import the list of debian packages to install from the packagesList.yml file
+    - name: Gather Facts
+      ansible.builtin.setup:
+        gather_subset:
+          - min
+      register: fact
+
+    # - debug:
+    #     msg: "{{ fact }}"
+
+    - name: Include the list of packages to install from the packagesList.yml file
       include_vars:
         file: ./packagesList.yml
 
   tasks:
-    - name: Configuring the list of keys
+    - name: Include the list of tasks to install packets
       include_tasks: ./packagesAdd.yml
       when: packages is defined
       
