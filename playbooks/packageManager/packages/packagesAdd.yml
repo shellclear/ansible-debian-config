@@ -1,19 +1,47 @@
 ---
-- name: List of debian packages to install
-  debug:
-    msg: "{{ packages }}"
-    
-- name: Installing debian packages
-  apt:
-    force_apt_get: yes
-    name: "{{ packages }}"
-    state: latest
-    update_cache: yes
-  register: result
-  retries: 10
-  until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
+- block:
+    - name: List of debian packages to install
+      debug:
+        msg: "{{ packages['debian'] }}"
+        
+    - name: Installing debian packages
+      apt:
+        force_apt_get: yes
+        name: "{{ packages['debian'] }}"
+        state: latest
+        update_cache: yes
+      register: result
+      retries: 10
+      until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
 
-# - name: DEBUG - Installing debian packages
-#   debug:
-#     msg:
-#       - "{{ result }}"
+    # - name: DEBUG - Installing debian packages
+    #   debug:
+    #     msg:
+    #       - "{{ result }}"
+
+  when: 
+    - fact['ansible_facts']['ansible_architecture'] == "x86_64"
+    - fact['ansible_facts']['ansible_distribution'] == "Debian"
+    - fact['ansible_facts']['ansible_distribution_version'] == "11"
+
+- block:
+    - name: List of fedora packages to install
+      debug:
+        msg: "{{ packages['fedora'] }}"
+        
+    - name: Installing fedora packages
+      dnf:
+        name: "{{ packages['fedora'] }}"
+        state: latest
+        update_cache: yes
+      register: result
+
+    # - name: DEBUG - Installing fedora packages
+    #   debug:
+    #     msg:
+    #       - "{{ result }}"
+
+  when: 
+    - fact['ansible_facts']['ansible_architecture'] == "x86_64"
+    - fact['ansible_facts']['ansible_distribution'] == "Fedora"
+    - fact['ansible_facts']['ansible_distribution_version'] == "35"
