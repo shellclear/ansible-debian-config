@@ -1,0 +1,407 @@
+---
+- name: Running local tests
+  hosts: all,localhost
+  gather_facts: yes
+  become: no
+  
+  tasks:
+    # - name: Inner Out loop
+    #   include_tasks: ./inner.yml
+    #   loop:
+    #     - 1
+    #     - 2
+    #     - 3
+    #   loop_control:
+    #     loop_var: outer_item
+
+    # - name: Changing from with_items to loop
+    #   debug:
+    #     msg: "{{ item }}"
+    #   # The with_items by default flattens only 1 level, in this case it will
+    #   # flattens the array printing {1,2,3,4}.
+    #   with_items:
+    #     - 1
+    #     - [2,3]
+    #     - 4
+    #   # Loop will behavior in a different way that with_item, it'll will
+    #   # print {1,[2,3],4}
+    #   loop: "{{ [1, [2,3] ,4] }}"
+    #   # To have the same behavior that with_items and return a single list
+    #   # completely flattened as {1,2,3,4} is necessary to use flatten(), 
+    #   # this plugin will continue to flatten until it cannot find lists
+    #   # anymore.
+    #   loop: "{{ [1, [2,3] ,4] | flatten(1) }}"
+    #   # We also can run the lookup nested plugin directly without a with_
+    #   debug:
+    #     msg: "{{ lookup( 'items', [1, [2,3] ,4] ) }}"   
+
+    #- name: Lets look like the with_nested lookup plugin works
+    #   debug:
+    #     msg: "{{ item }}"
+    #   # With_ + nested(a type of lookup plugin) will print a list with 
+    #   # elements that are lists composed of the elements of the input lists
+    #   with_nested:
+    #     - [ 'alice', 'bob' ]
+    #     - [ 'clientdb', 'employeedb', 'providerdb' ]
+    #   # We also can run lookup nested plugin directly without a loop
+    #  debug:
+    #    msg: "{{ lookup( 'nested', [ 'alice', 'bob' ],[ 'clientdb', 'employeedb', 'providerdb' ] ) }}"
+
+    # - name: Printing the content of files using file lookup plugin
+    #   debug:
+    #     msg: "{{ item }}"
+    #   with_file:
+    #     - "/etc/fstab"
+    #     - "/proc/cmdline"
+    #   # We also can run lookup file plugin directly without a loop
+    # - name: DEBUG - Printing the content of files using file lookup plugin
+    #   debug:
+    #     msg: "{{ lookup('file', '/etc/fstab', '/proc/cmdline' ) }}"
+
+    # - name: "Printing the content of envs $USER: {{ lookup('env', 'USER') }} and $HOME: {{ lookup('env', 'HOME') }}"
+    #   debug:
+    #     msg: "{{ item }}"
+    #   with_env:
+    #     - 'USER'
+    #     - 'HOME'
+
+    # - name: Always use quote filter to make sure your variables are safe to use with shell
+    #   debug:
+    #     msg: "{{ lookup('pipe', 'getent passwd ' + 'paulo' | quote ) }}"
+
+    # - name: Random result
+    #   debug:
+    #     msg: "{{ lookup( 'random_choice', 1, 2, 3, 4, 5, 6 ) }}"
+
+    # - name: Creates a list with the iterated elements of the supplied lists
+    #   debug:
+    #   # item.0 returns from the 'a' list,  item.1 returns from the '1' list
+    #     msg: "{{ item.0 }} and {{ item.2 }}"
+    #   with_together:
+    #     - ['a', 'b', 'c', 'd']
+    #     - [1, 2, 3, 4]
+    #     - ['e', 'f', 'g', 'h', 'g']
+
+    # - name: url return contents from URL
+    #   # debug:
+    #   #   msg: "{{ lookup('url', 'https://raw.githubusercontent.com/shellclear/ansible-debian-config/main/README.md')}}"
+    #   debug:
+    #     msg: "{{ item }}"
+    #   with_url: 'https://raw.githubusercontent.com/shellclear/ansible-debian-config/main/README.md'
+
+    # - name: Registered gather_facts
+    #   debug: var=ansible_facts
+
+    # - name: "Echo flavored systems"
+    #   command: hostname -f
+    #   register: response
+    #   when: ansible_facts['os_family'] == "RedHat"
+    
+    # - name: DEBUG - Echo flavored systems
+    #   debug: var=response.stdout_lines
+
+    # - name: Generate dynamic groups based on architecture
+    #   group_by:
+    #     key: arch_"{{ ansible_facts['architecture'] }}"
+    #   register: inventoryGroupExample
+    
+    # - name: DEBUG Generate dynamic groups based on architecture
+    #   debug: var=inventoryGroupExample.add_group
+
+    # - name: DEBUG dynamic libvirt inventory
+    #   shell: echo $HOSTNAME
+   
+    # - block:
+    #   - name: set fact multiline string_with_breaks
+    #     set_fact:
+    #       string_with_breaks: |
+    #         This string
+    #         has several
+    #         line breaks
+
+    #       string_without_breaks: >
+    #         This string will not
+    #         contain any line breaks.
+    #         Separated lines are joined
+    #         by a space character.
+
+    #   - name: DEBUG - Multiline string_with_breaks
+    #     debug:
+    #       msg:
+    #         - "{{ string_with_breaks }}"
+    #         - "{{ string_without_breaks }}"
+    #   tags: multiline
+
+    # - block:
+    #   - name: set fact to assert module
+    #     set_fact:
+    #       my_list:
+    #         - Banana
+    #         - Orange
+    #         - Apple
+        
+    #   - name: Assert my_list
+    #     assert:
+    #       that:
+    #         - "'Banana' in my_list"
+    #         - "'Apple' in my_list"
+    #       fail_msg: "Banana and Apple are not inside the {{ my_list }} list"
+    #       success_msg: "Banana or Apple are inside {{ my_list }}"
+    #   tags: assert
+
+    # - block:
+    #   - name: converting between dictionaries and lists
+    #     vars:
+    #       characters_dict:
+    #         Douglas: Human
+    #         Marvin: Robot
+    #         Arthur: Human
+    #       characters_items:
+    #         - key: Douglas
+    #           value: Human
+    #         - key: Marvin
+    #           value: Robot
+    #         - key: Arthur
+    #           value: Human
+    #     assert:
+    #       that:
+    #         - "{{ characters_dict | dict2items }} is eq( characters_items )"
+    #         - "{{ characters_items | items2dict }} is eq( characters_dict )"
+
+    #   - name: DEBUG - converting between dictionaries and lists
+    #     vars:
+    #       characters_dict:
+    #         Douglas: Human
+    #         Marvin: Robot
+    #         Arthur: Human
+    #       characters_items:
+    #         - key: Douglas
+    #           value: Human
+    #         - key: Marvin
+    #           value: Robot
+    #         - key: Arthur
+    #           value: Human      
+    #     debug:
+    #       msg:
+    #         - "{{ item }}"
+    #     loop: 
+    #       - "{{ characters_dict | dict2items }}"
+    #     tags:
+    #       - dict2itemsSample
+
+    #   - name: DEBUG - converting between dictionaries and lists
+    #     vars:
+    #       characters_dict:
+    #         Douglas: Human
+    #         Marvin: Robot
+    #         Arthur: Human
+    #       characters_items:
+    #         - key: Douglas
+    #           value: Human
+    #         - key: Marvin
+    #           value: Robot
+    #         - key: Arthur
+    #           value: Human      
+    #     debug:
+    #       msg:
+    #         - "{{ item.key }} -> {{ item.value }}"
+    #     with_dict: 
+    #       - "{{ characters_items | items2dict }}"   
+    #     tags:
+    #       - items2dictSample    
+    # - block:
+    #   - name: Get the 'name' elements from the list of dictionaries in 'hosts'
+    #     vars:
+    #       hosts:
+    #         - name: bastion
+    #           ip:
+    #             - 172.25.250.254
+    #             - 172.25.252.1
+    #         - name: classroom
+    #           ip:
+    #             - 172.25.252.254
+    #     assert:
+    #       that:
+    #         - "{{ hosts | json_query('[*].name') }} is eq( ['bastion','classroom'] )"
+
+    #   - name: DEBUG- Get the 'name' elements from the list of dictionaries in 'hosts'
+    #     vars:
+    #       hosts:
+    #         - name: bastion
+    #           ip:
+    #             - 172.25.250.254
+    #             - 172.25.252.1
+    #         - name: classroom
+    #           ip:
+    #             - 172.25.252.2      
+    #     debug:
+    #       msg: "{{ hosts | json_query('[*].name') }}"
+
+    #   - name: Convert between JSON and YAML format
+    #     vars:
+    #       hosts:
+    #         - name: bastion
+    #           ip:
+    #             - 172.25.250.254
+    #             - 172.25.252.1
+    #       hosts_json: '[{"name": "bastion", "ip": ["172.25.250.254", "172.25.252.1"]}]'
+    #     assert:
+    #       that:
+    #         - "'{{ hosts | to_json }}' is eq( hosts_json )"      
+
+    #   - name: DEBUG - Convert between JSON and YAML format
+    #     vars:
+    #       hosts:
+    #         - name: bastion
+    #           ip:
+    #             - 172.25.250.254
+    #             - 172.25.252.1
+    #       hosts_json: '[{"name": "bastion", "ip": ["172.25.250.254", "172.25.252.1"]}]'
+    #     debug:
+    #       msg:
+    #         - "{{ hosts | to_json }}"            
+
+    # - block:
+    #   - name: Lookup plugins - Reading control node command output
+    #     vars:
+    #       files:
+    #         - /NOTEXISTS
+    #         - /var
+    #     debug:
+    #       #  the lookup plug-in accepts the errors parameter.
+    #       # The default value for the errors option is strict.
+    #       # This means that the lookup plug-in raises a fatal 
+    #       # error if the underlying script fails. 
+    #       # other values are warn and ignore
+    #       msg: "{{ query('lines', 'ls {{ item }}', errors='ignore') }}"
+    #     loop: "{{ files }}"
+    #     tags: lookupPlugin
+
+    #   - name: Lookup plugins - Reading control node command output2
+    #     vars:
+    #       files:
+    #         - "{{ query('lines', 'cat /etc/fstab')}}"
+    #         - "{{ query('lines', 'cat /etc/hosts')}}"
+    #     debug:
+    #       msg: "{{ item[0] }}"
+    #     loop: "{{ files }}"
+    #     tags: lookupPlugin 
+
+    #   - name: Lookup plugins - Reading control node envs
+    #     debug:
+    #       msg: "{{ query('env', 'USER') }}"
+    #     tags: envPlugin   
+
+    #   - name: Lookup plugins - Reading content from URL
+    #     debug:
+    #       msg: "{{ lookup('url', 'http://ipinfo.io/ip')}}"
+    #     tags: urlPlugin
+
+    #   tags: pluginsSample     
+
+    # - block:
+    #   - name: Iterating Over Nested Lists
+    #     vars:
+    #       paul_pass: paulPass
+    #       john_pass: johnPass
+    #       users:
+    #         - name: paul
+    #           password: "{{ paul_pass }}"
+    #           authorized:
+    #             - keys/paul_key1.pub
+    #             - keys/paul_key2.pub
+    #           mysql:
+    #             hosts:
+    #               - "%"
+    #               - "127.0.0.1"
+    #               - "::1"
+    #               - "localhost"
+    #           groups:
+    #               - wheel
+
+    #         - name: john
+    #           password: "{{ john_pass }}"
+    #           authorized:
+    #             - keys/john_key.pub
+    #             - keys/john_key2.pub                
+    #           mysql:
+    #             password: other-mysql-password
+    #             hosts:
+    #               - "utility"
+    #           groups:
+    #             - wheel
+    #             - devops   
+    #     debug:  
+    #       msg: 
+    #         - "{{ item }}"
+    #         # - "user: {{ item.0.name }}"
+    #         # - "key: {{ lookup('file', item.1) }}"
+    #     loop: "{{ users | subelements('authorized') }}"
+    #   tags: subelementFilter
+
+    # - name: Iterating Over a Dictionary  
+    #   tags: dict2itemsSample 
+    #   vars:
+    #     users:
+    #       demo1:
+    #         name: Demo User 1
+    #         mail: demo1@example.com
+    #       demo2:
+    #         name: Demo User 2
+    #         mail: demo2@example.com
+    #       demo200:
+    #         name: Demo User 200
+    #         mail: demo200@example.com       
+    #   block:        
+    #     - name: Iterating Over a Dictionary Users
+    #       debug:
+    #         msg:
+    #           - "name: {{ item.key }}"
+    #           - "comment: {{ item.value.name }}"
+    #       with_dict: "{{ users }}"
+    #     # The best option is to use loop + dict2items filter
+    #     - name: Iterating Over a Dictionary Users using dict2items
+    #       debug:
+    #         msg:
+    #           - "{{ item }}"
+    #           - "name: {{ item.key }}"
+    #           - "comment: {{ item.value.name }}"
+    #           - "mail: {{ item.value.mail }}"
+    #       loop: "{{ users | dict2items }}"           
+           
+
+    # - name:  Selected Networking Facts
+    #   tags: networkfacts
+    #   block:
+    #     - name: Printing Networking Facts
+    #       vars:
+    #         my_network:
+    #           - 192.168.0.0/22
+    #       debug:
+    #         msg:
+    #           - "DNS & Nameservers: {{ ansible_facts['dns']['nameservers'] }}"
+    #           - "DOMAIN: {{ ansible_facts['domain'] }}"
+    #           - "IPV4: {{ ansible_facts['all_ipv4_addresses'] }}"
+    #           - "IPV6: {{ ansible_facts['all_ipv6_addresses'] }}"
+    #           - "FQDN: {{ ansible_facts['fqdn'] }}"
+    #           - "HOSTNAME: {{ ansible_facts['hostname'] }}"
+    #           - "IPADDR FILTER: {{ my_network | ipaddr('netmask') }}" # this filter require netaddr python package
+    #     - name: Collecting Network Information with Plug-ins
+    #       debug:
+    #         msg:
+    #           - "SIMPLE DIG: {{ lookup('dig', 'google.com') }}" # this filter require dnspython package
+    #           - "DIG MX: {{ query('dig', 'google.com', 'qtype=MX') }}"
+    #           - "DIG MX: {{ lookup('dig', 'aws.com/MX', '@1.1.1.1') }}"
+    #           - "DNSTXT: {{ lookup('dnstxt', 'terra.com') }}"
+    #           - "CHECK IF IP IS PRIVATE: {{ lookup('dig', ansible_facts['hostname'] ) | ipaddr('private') }}"
+
+    # - name: Test default filter
+    #   debug:
+    #     msg:
+    #       - "if var {{ ENV }} is not defined or empty we'll use the default value: {{ lookup('env', ENV) | default('DEFAULT', true) }}"    
+    #   loop:
+    #     - HOME
+    #     - USER
+    #     - CUSTOM_VAR
+    #   loop_control:
+    #     loop_var: ENV
