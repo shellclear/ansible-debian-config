@@ -113,6 +113,12 @@ packages:
     - zram-tools
     - polychromatic
     - openrazer-meta
+    - terraform
+    - nomad
+    - vault
+    - packer
+    - vagrant
+    - consul
     
   fedora:
     - aircrack-ng
