@@ -167,3 +167,8 @@ keys:
     state: absent
     id: 7FCC7D46ACCC4CF8
     name: postgresql
+
+  # hashicorp
+  - url: https://apt.releases.hashicorp.com/gpg
+    state: present
+    name: hashicorp
