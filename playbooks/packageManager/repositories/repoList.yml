@@ -193,3 +193,7 @@ repositories:
   - name: postgresql
     repository: 'deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main'
     state: absent
+
+  - name: hashicorp
+    repository: "deb [arch=amd64] https://apt.releases.hashicorp.com bullseye main"
+    state: present
