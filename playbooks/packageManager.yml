@@ -1,0 +1,9 @@
+---
+- name: Ensure repos, keys and packets are deployed
+  hosts: all
+  gather_facts: false
+  become: false
+  tags:
+    - packageManager
+  roles:
+    - packageManager

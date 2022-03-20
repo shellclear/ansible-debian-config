@@ -1,0 +1,40 @@
+---
+- name: Gather Facts from {{ inventory_hostname }} target 
+  become: true
+  ansible.builtin.setup:
+    gather_subset:
+      - min
+  register: facts
+
+- become: true
+  block: 
+    - name: Add apt keys for {{ inventory_hostname }} target
+      ansible.builtin.apt_key:
+        id: "{{ key.id | default(omit) }}"
+        state: "{{ key.state | default('present') }}"
+        url: "{{ key.url | default(omit) }}"
+        keyserver: "{{ key.keyserver | default(omit) }}"
+      loop: "{{ keys }}"
+      loop_control:
+        loop_var: key
+        label: "{{ key.name }} key is {{ key.state | default('present') }}"
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Debian"
+    - facts['ansible_facts']['ansible_distribution_version'] == "11"
+
+- become: true
+  block: 
+    - name: Add rpm keys for {{ inventory_hostname }} target
+      ansible.builtin.rpm_key:
+        fingerprint: "{{ key.id | default(omit) }}"
+        state: "{{ key.state | default('present') }}"
+        key: "{{ key.url if key.url is defined else key.keyserver }}"
+      loop: "{{ keys }}"
+      loop_control:
+        loop_var: key
+        label: "{{ key.name }} key is {{ key.state | default('present') }}"
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Fedora"
+    - facts['ansible_facts']['ansible_distribution_version'] == "35"

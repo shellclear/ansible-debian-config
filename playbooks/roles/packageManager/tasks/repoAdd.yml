@@ -1,0 +1,44 @@
+---
+- name: Gather Facts from {{ inventory_hostname }} target
+  become: true
+  ansible.builtin.setup:
+    gather_subset:
+      - min
+  register: facts
+
+- become: true
+  block: 
+  - name: Add apt repository files on /etc/apt/sources.list.d/ folder for {{ inventory_hostname }} target
+    ansible.builtin.apt_repository:
+      filename: "{{ repo.name | mandatory }}"
+      repo: "{{ repo.repository | mandatory }}"
+      state: "{{ repo.state | default('present') }}"
+      mode: 0644
+      update_cache: no
+    loop: "{{ repositories }}"
+    loop_control:
+      loop_var: repo
+      label: "{{ repo.name }} repo is {{ repo.state | default('present') }}"    
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Debian"
+    - facts['ansible_facts']['ansible_distribution_version'] == "11"
+
+- become: true
+  block: 
+  - name: Add rpm repository files /etc/dnf/dnf.conf.d folder for {{ inventory_hostname }} target
+    ansible.builtin.apt_repository:
+      filename: "{{ repo.name | mandatory }}"
+      repo: "{{ repo.repository | mandatory }}"
+      state: "{{ repo.state | default('present') }}"
+      mode: 0644
+      update_cache: no
+    loop: "{{ repositories }}"
+    loop_control:
+      loop_var: repo
+      label: "{{ repo.name }} repo is {{ repo.state | default('present') }}"  
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Fedora"
+    - facts['ansible_facts']['ansible_distribution_version'] == "35"
+    
