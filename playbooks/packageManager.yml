@@ -2,7 +2,7 @@
 - name: Ensure repos, keys and packets are deployed
   hosts: all
   gather_facts: false
-  become: false
+  become: true
   tags:
     - packageManager
   roles:

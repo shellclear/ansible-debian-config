@@ -1,8 +1,6 @@
 ---
 - import_tasks: ./keyAdd.yml
   tags: keyAdd
-  when: keys is defined
 
 - import_tasks: ./repoAdd.yml
   tags: repoAdd
-  when: repositories is defined

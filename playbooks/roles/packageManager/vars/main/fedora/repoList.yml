@@ -1,117 +1,9 @@
 ---
-keys:  
-  - url: 'https://download.docker.com/linux/debian/gpg'
-    name: docker-ce
+fedora_repositories:
+  - name: anydesk-stable
+    repository: http://rpm.anydesk.com/fedora/$basearch/
+    state: present
 
-  # - url: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
-  #   name: virtualbox
-
-  # - url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
-  #   name: atom
-  #   state: absent
-
-  # - url: 'https://baltocdn.com/helm/signing.asc'
-  #   name: helm
-  #   state: absent
-
-  # - keyserver: 'hkp://keyserver.ubuntu.com:11371'
-  #   id: D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26
-  #   name: puppet
-  #   state: absent
-
-  # - keyserver: 'hkp://pgp.mit.edu'
-  #   id: 3A79BD29
-  #   name: mysql
-  #   state: absent
-
-  # - url: 'https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg'
-  #   name: spotify
-  
-  # - url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
-  #   name: skype
-  
-  # - url: 'https://packages.microsoft.com/keys/microsoft.asc'
-  #   name: vscode
-  
-  # - url: 'https://dbeaver.io/debs/dbeaver.gpg.key'
-  #   name: dbeaver
-  
-  # - url: 'https://dl.google.com/linux/linux_signing_key.pub'
-  #   name: google-chrome
-  
-  # - url: 'https://artifacts.elastic.co/GPG-KEY-elasticsearch'
-  #   name: elastic-7.x/elastic-oss-7.x
-  #   state: absent
-
-  # - url: 'https://download.opensuse.org/repositories/home:strycore/Debian_11/Release.key'    
-  #   name: lutris
-  #   state: absent
-
-  # - url: 'https://keys.anydesk.com/repos/DEB-GPG-KEY'
-  #   name: anydesk
-  #   state: absent
-
-  # - url: 'https://packages.gitlab.com/gitlab/gitlab-ee/gpgkey'
-  #   name: gitlab-ce/gitlab-ee
-  #   state: absent
-
-  # - url: 'https://nginx.org/keys/nginx_signing.key'
-  #   name: nginx
-  #   state: absent
-
-  # - url: 'https://download.jitsi.org/jitsi-key.gpg.key'
-  #   name: jitsi
-  #   state: absent
-
-  # - url: 'https://swupdate.openvpn.net/repos/repo-public.gpg'
-  #   name: openvpn
-  #   state: absent
-  
-  # - url: 'https://packages.sury.org/php/apt.gpg'
-  #   name: php-sury
-  #   state: absent
-
-  # - url: 'https://repository.veeam.com/keys/veeam.gpg'
-  #   name: veeam
-  #   state: absent
-
-  # - url: 'https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc'
-  #   name: teamviewer
-  
-  # - url: 'https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg'
-  #   name: vscodium
-  #   state: absent
-
-  # - url: 'https://build.opensuse.org/projects/home:jgeboski/public_key.pub' 
-  #   name: facebook-purple
-  #   state: absent
-
-  # - url: 'https://download.opensuse.org/repositories/home:stevenpusser/Debian_10/Release.key'
-  #   name: palemoon
-  #   state: absent
-
-  # - url: 'https://mega.nz/keys/MEGA_signing.key'
-  #   name: megasync
-
-  # - keyserver: 'hkp://keyserver.ubuntu.com:11371'
-  #   id: 96B9CD7C22E2C8C5
-  #   name: polychromatic
-
-  # - url: 'https://download.opensuse.org/repositories/hardware:razer/Debian_11/Release.key'
-  #   name: openrazer
-
-  # - url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
-  #   name: postgresql
-  #   state: absent
-
-  # - url: https://apt.releases.hashicorp.com/gpg    
-  #   name: hashicorp
-
-# repositories:
-#   - name: anydesk-stable
-#     repository: 'deb http://deb.anydesk.com/ all main'
-#     state: absent
-  
   # - name: atom
   #   repository: 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main'
   #   state: absent
@@ -244,26 +136,26 @@ keys:
 
   # - name: teamview
   #   repository: 'deb https://linux.teamviewer.com/deb stable main'
-  #                #   TeamViewer DEB repository list
+  #               #   TeamViewer DEB repository list
 
-  #                # NOTE: Manual changes to this file
-  #                #        - prevent it from being updated by TeamViewer package updates
-  #                #        - will be lost after using the 'teamviewer repo' command
-  #                #       The original file can be restored with this command:
-  #                #       cp /opt/teamviewer/tv_bin/script/teamviewer.list /etc/apt/sources.list.d/teamviewer.list
-  #                #       which has the same effect as 'teamviewer repo default'
+  #               # NOTE: Manual changes to this file
+  #               #        - prevent it from being updated by TeamViewer package updates
+  #               #        - will be lost after using the 'teamviewer repo' command
+  #               #       The original file can be restored with this command:
+  #               #       cp /opt/teamviewer/tv_bin/script/teamviewer.list /etc/apt/sources.list.d/teamviewer.list
+  #               #       which has the same effect as 'teamviewer repo default'
 
-  #                # NOTE: It is preferred to use the following commands to edit this file:
-  #                #       teamviewer repo                - show current repository configuration
-  #                #       teamviewer repo default        - restore default configuration
-  #                #       teamviewer repo disable        - disable the repository
-  #                #       teamviewer repo stable         - make all regular TeamViewer packages available (default)
-  #                #       teamviewer repo preview        - additionally, make feature preview packages available
-  #                #       teamviewer repo development    - additionally, make the latest development packages available                                                                                                            ─────
+  #               # NOTE: It is preferred to use the following commands to edit this file:
+  #               #       teamviewer repo                - show current repository configuration
+  #               #       teamviewer repo default        - restore default configuration
+  #               #       teamviewer repo disable        - disable the repository
+  #               #       teamviewer repo stable         - make all regular TeamViewer packages available (default)
+  #               #       teamviewer repo preview        - additionally, make feature preview packages available
+  #               #       teamviewer repo development    - additionally, make the latest development packages available                                                                                                            ─────
 
-  #                # deb https://linux.teamviewer.com/deb stable main
-  #                # deb https://linux.teamviewer.com/deb preview main
-  #                # deb https://linux.teamviewer.com/deb development main
+  #               # deb https://linux.teamviewer.com/deb stable main
+  #               # deb https://linux.teamviewer.com/deb preview main
+  #               # deb https://linux.teamviewer.com/deb development main
 
   # - name: veeam
   #   repository: 'deb [arch=amd64] http://repository.veeam.com/backup/linux/agent/dpkg/debian/public stable veeam'     
