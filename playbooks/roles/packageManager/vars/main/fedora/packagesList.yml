@@ -1,0 +1,107 @@
+---
+packages: 
+  fedora:
+    - aircrack-ng
+    # - arping
+    - arpwatch
+    - asciinema
+    - bind-utils
+    # - build-essential
+    - buildah
+    - chkrootkit
+    - cloud-utils
+    - cloud-init
+    - cloud-utils-growpart
+    # - code
+    - colord
+    - PackageKit-command-not-found
+    - cowsay
+    - cryfs
+    # - dbeaver-ce
+    # - default-jre
+    # - docker-ce
+    # - duf
+    - etckeeper
+    - exa
+    - fbterm
+    - fdupes
+    - fio
+    - flameshot
+    - flatpak
+    - git
+    # - gnome-shell-extension-gpaste
+    # - gnome-shell-pomodoro
+    # - gnome-software-plugin-flatpak
+    # - gnome-software-plugin-snap
+    - iotop
+    - iperf
+    - iptraf-ng
+    - jid
+    - jq
+    - keepassx
+    # - lens
+    - linphone
+    # - linux-headers-amd64
+    - lm_sensors
+    - lsof
+    # - megasync
+    - memtest86+
+    # - molly-guard
+    - mtr
+    # - nautilus-dropbox
+    # - nautilus-megasync
+    - neofetch
+    - NetworkManager-openvpn-gnome
+    # - nextcloud-desktop
+    # - nfs-kernel-server
+    - nmap
+    - ntfs-3g
+    - onionshare
+    - openssh-server
+    # - p7zip-full
+    - parallel
+    - pass
+    # - pavucontrol
+    - pciutils
+    - pigz
+    # - plymouth-themes
+    - podman
+    - polari
+    # - python3-venv
+    - rclone
+    - remmina
+    - retroarch
+    - rfkill
+    - rkhunter
+    - rsync
+    # - secure-delete
+    - sipcalc
+    # - skypeforlinux
+    - slirp4netns
+    - smartmontools
+    - socat
+    - stellarium
+    - strace
+    - sysstat
+    - tcpdump
+    # - teamviewer
+    - telnet
+    - testdisk
+    - tmux
+    - tor
+    - transmission-gtk
+    - tree
+    - unar
+    # - unrar
+    - unzip
+    - upower
+    - vim
+    - virt-manager
+    # - virtualbox-6.1
+    - vnstat
+    - wget
+    - whois
+    - wireshark
+    # - zram-tools
+    # - polychromatic
+    # - openrazer-meta

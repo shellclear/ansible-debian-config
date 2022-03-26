@@ -8,14 +8,14 @@
 - block: 
     - name: Add apt keys for {{ inventory_hostname }} target
       ansible.builtin.apt_key:
-        id: "{{ key.id | default(omit) }}"
-        state: "{{ key.state | default('present') }}"
-        url: "{{ key.url | default(omit) }}"
-        keyserver: "{{ key.keyserver | default(omit) }}"
-      loop: "{{ debian_keys }}"
+        id: "{{ key.['id'] | default(omit) }}"
+        state: "{{ key['state'] | default('present') }}"
+        url: "{{ key['url'] | default(omit) }}"
+        keyserver: "{{ key'[keyserver'] | default(omit) }}"
+      loop: "{{ keys['debian'] }}"
       loop_control:
         loop_var: key
-        label: "{{ key.name }} key is {{ key.state | default('present') }}"
+        label: "{{ key['name'] }} key is {{ key['state'] | default('present') }}"
   when: 
     - facts['ansible_facts']['ansible_architecture'] == "x86_64"
     - facts['ansible_facts']['ansible_distribution'] == "Debian"
@@ -24,13 +24,13 @@
 - block: 
     - name: Add rpm keys for {{ inventory_hostname }} target
       ansible.builtin.rpm_key:
-        fingerprint: "{{ key.id | default(omit) }}"
-        state: "{{ key.state | default('present') }}"
-        key: "{{ key.url if key.url is defined else key.keyserver }}"
-      loop: "{{ fedora_keys }}"
+        fingerprint: "{{ key['id'] | default(omit) }}"
+        state: "{{ key['state'] | default('present') }}"
+        key: "{{ key['url'] if key.url is defined else key['keyserver'] }}"
+      loop: "{{ keys['fedora'] }}"
       loop_control:
         loop_var: key
-        label: "{{ key.name }} key is {{ key.state | default('present') }}"
+        label: "{{ key['name'] }} key is {{ key['state'] | default('present') }}"
   when: 
     - facts['ansible_facts']['ansible_architecture'] == "x86_64"
     - facts['ansible_facts']['ansible_distribution'] == "Fedora"
