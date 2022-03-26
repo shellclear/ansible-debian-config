@@ -13,19 +13,16 @@ Role Variables
 
 ```
 List of keys: 
-  keys:
-    debian: []
-    fedora: []
+  debian_keys: []
+  fedora_keys: []
 
 List of repositories:
-  repositories:
-    debian: []
-    fedora: []
+  debian_repositories: []
+  fedora_repositories: []
 
 list of packages:
-  packages:
-    debian: []
-    fedora: []
+  debian_packages: []
+  fedora_packages: []
 ```
 
 Dependencies
