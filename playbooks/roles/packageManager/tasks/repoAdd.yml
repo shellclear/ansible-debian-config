@@ -13,7 +13,7 @@
       state: "{{ repo['state'] | default('present') }}"
       mode: 0644
       update_cache: no
-    loop: "{{ repositories['debian'] }}"
+    loop: "{{ debian_repositories }}"
     loop_control:
       loop_var: repo
       label: "{{ repo['name'] }} repo is {{ repo['state'] | default('present') }}"    
@@ -31,7 +31,7 @@
       state: "{{ repo['state'] | default('present') }}"
       mode: 0644
       gpgcheck: yes
-    loop: "{{ repositories['fedora'] }}"
+    loop: "{{ fedora_repositories }}"
     loop_control:
       loop_var: repo
       label: "{{ repo['name'] }} repo is {{ repo['state'] | default('present') }}"  

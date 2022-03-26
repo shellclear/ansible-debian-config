@@ -1,6 +1,5 @@
 ---
-keys:
-  debian:
+debian_keys:
     - url: 'https://download.docker.com/linux/debian/gpg'
       name: docker-ce
 

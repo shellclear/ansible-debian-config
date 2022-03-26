@@ -1,6 +1,5 @@
 ---
-repositories:
-  fedora:
+fedora_repositories:
     - name: anydesk-stable
       repository: http://rpm.anydesk.com/fedora/$basearch/
       state: present

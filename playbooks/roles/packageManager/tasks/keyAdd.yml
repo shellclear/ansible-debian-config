@@ -8,11 +8,11 @@
 - block: 
     - name: Add apt keys for {{ inventory_hostname }} target
       ansible.builtin.apt_key:
-        id: "{{ key.['id'] | default(omit) }}"
+        id: "{{ key['id'] | default(omit) }}"
         state: "{{ key['state'] | default('present') }}"
         url: "{{ key['url'] | default(omit) }}"
-        keyserver: "{{ key'[keyserver'] | default(omit) }}"
-      loop: "{{ keys['debian'] }}"
+        keyserver: "{{ key['keyserver'] | default(omit) }}"
+      loop: "{{ debian_keys }}"
       loop_control:
         loop_var: key
         label: "{{ key['name'] }} key is {{ key['state'] | default('present') }}"
@@ -26,8 +26,8 @@
       ansible.builtin.rpm_key:
         fingerprint: "{{ key['id'] | default(omit) }}"
         state: "{{ key['state'] | default('present') }}"
-        key: "{{ key['url'] if key.url is defined else key['keyserver'] }}"
-      loop: "{{ keys['fedora'] }}"
+        key: "{{ key['url'] if key['url'] is defined else key['keyserver'] }}"
+      loop: "{{ fedora_keys }}"
       loop_control:
         loop_var: key
         label: "{{ key['name'] }} key is {{ key['state'] | default('present') }}"

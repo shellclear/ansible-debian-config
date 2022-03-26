@@ -1,6 +1,5 @@
 ---
-packages: 
-  fedora:
+fedora_packages:
     - aircrack-ng
     # - arping
     - arpwatch

@@ -1,6 +1,5 @@
 ---
-repositories:
-  debian:
+debian_repositories:
     - name: anydesk-stable
       repository: 'deb http://deb.anydesk.com/ all main'
       state: absent

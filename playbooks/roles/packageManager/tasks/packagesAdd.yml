@@ -6,19 +6,19 @@
   register: facts
 
 - block:
-  - name: List of debian packages to install
-    ansible.builtin.debug:
-      msg: "{{ packages['debian'] }}"
+  # - name: List of debian packages to install
+  #   ansible.builtin.debug:
+  #     msg: "{{ debian_packages }}"
       
   - name: Installing debian packages
     ansible.builtin.apt:
       force_apt_get: yes
-      name: "{{ packages['debian'] }}"
+      name: "{{ debian_packages }}"
       state: latest
       update_cache: yes
     retries: 10
     until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
-  #   register: result
+    register: result
 
   # - name: DEBUG - Installing debian packages
   #   debug:
@@ -31,13 +31,13 @@
     - facts['ansible_facts']['ansible_distribution_version'] == "11"
 
 - block:
-  - name: List of fedora packages to install
-    debug:
-      msg: "{{ packages['fedora'] }}"
+  # - name: List of fedora packages to install
+  #   debug:
+  #     msg: "{{ fedora_packages }}"
       
   - name: Installing fedora packages
     ansible.builtin.dnf:
-      name: "{{ packages['fedora'] }}"
+      name: "{{ fedora_packages }}"
       state: latest
       update_cache: yes
   #   register: result

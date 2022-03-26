@@ -1,6 +1,5 @@
 ---
-packages:
-  debian:
+debian_packages:
     - aircrack-ng
     - apt-file
     - apt-listbugs
