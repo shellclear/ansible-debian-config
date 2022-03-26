@@ -1,0 +1,19 @@
+---
+- name: Creating Python venvs
+  pip:
+    name: "{{ package['name'] }}"
+    chdir: "/home/{{ ansible_user }}/usr/share/python/venv"
+    virtualenv: "{{ package['venv'] }}"
+    virtualenv_command: "python -m venv"
+    state: "{{ package['state'] }}"
+  loop: "{{ venvs }}"
+  loop_control:
+    loop_var: package
+    label: "{{ package['venv'] }} venv is {{ package['state'] }}"
+#   register: result
+
+# - name: DEBUG - Creating Python venvs
+#   debug:
+#     msg: "{{ package['stdout_lines'] }}"
+#   loop: "{{ result['results'] }}"
+

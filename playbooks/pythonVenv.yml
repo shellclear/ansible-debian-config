@@ -1,0 +1,10 @@
+---
+- name: Configuring python virtual environments
+  hosts: all
+  gather_facts: false
+  become: false
+  tags:
+    - pythonVenv
+  roles:
+    - pythonVenv
+    

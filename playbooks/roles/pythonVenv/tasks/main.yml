@@ -1,0 +1,4 @@
+---
+- import_tasks: ./venvsAdd.yml
+  tags: venvAdd
+      
