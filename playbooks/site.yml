@@ -2,3 +2,5 @@
 - import_playbook: packageManager.yml
 
 - import_playbook: pythonVenv.yml
+
+- import_playbook: userManager.yml

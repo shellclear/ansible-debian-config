@@ -1,0 +1,10 @@
+---
+- name: Configuring userAccount
+  hosts: all
+  gather_facts: false
+  become: true
+  tags:
+    - userManager
+  roles:
+    - userManager
+    

@@ -1,0 +1,52 @@
+---
+- name: Gather Facts from {{ inventory_hostname }} target 
+  ansible.builtin.setup:
+    gather_subset:
+      - min
+  register: facts
+  
+- block:
+    - name: Creating users
+      ansible.builtin.user:
+        name: "{{ user.name }}"
+        comment: "{{ user.comment }}"
+        groups: "{{ user.groups }}"
+        state: "{{ user.state }}"
+      loop: "{{ debian_users }}"
+      loop_control:
+        loop_var: user
+        label: "{{ user.name }} user is {{ user.state }}"
+    #   register: result
+
+    # - name: DEBUG - Creating users
+    #   debug:
+    #     msg: "{{ user.}}"
+    #   loop: "{{ result.results }}"
+
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Debian"
+    - facts['ansible_facts']['ansible_distribution_version'] == "11"
+
+- block:
+    - name: Creating users
+      ansible.builtin.user:
+        name: "{{ user.name }}"
+        comment: "{{ user.comment }}"
+        groups: "{{ user.groups }}"
+        state: "{{ user.state }}"
+      loop: "{{ debian_users }}"
+      loop_control:
+        loop_var: user
+        label: "{{ user.name }} user is {{ user.state }}"
+    #   register: result
+
+    # - name: DEBUG - Creating users
+    #   debug:
+    #     msg: "{{ user.}}"
+    #   loop: "{{ result.results }}"
+    
+  when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Fedora"
+    - facts['ansible_facts']['ansible_distribution_version'] == "35"

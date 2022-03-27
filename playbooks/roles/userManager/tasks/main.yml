@@ -1,0 +1,10 @@
+---
+- name: Check conditions before run the tasks
+  fail:
+    msg: Please define debian_users or fedora_users vars for userManager role
+  when:
+    - debian_users is not defined or
+      fedora_users is not defined
+
+- import_tasks: ./usersAdd.yml
+  tags: usersAdd
