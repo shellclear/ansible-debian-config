@@ -1,4 +1,4 @@
-Role Name
+userManager
 =========
 
 userManager role will deploy the users and groups to debian or fedora hosts
