@@ -1,7 +1,7 @@
-Role Name
+packageManager
 =========
 
-PackageManager role will deploy the keys, repos and packages necessaries to debian or fedora hosts
+packageManager role will deploy the keys, repos and packages necessaries to debian or fedora hosts
 
 Requirements
 ------------
