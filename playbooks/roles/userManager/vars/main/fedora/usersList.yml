@@ -2,25 +2,12 @@ fedora_users:
   - name: ppacific
     comment: "Paulo Pacifico"
     groups:
-      - cdrom
-      - floppy
-      - sudo
-      - audio
-      - dip
-      - video
-      - staff
       - systemd-journal
-      - netdev
-      - bluetooth
-      - lpadmin
-      - scanner
       - ppacific
       - docker
       - wireshark
       - libvirt
-      - libvirt-qemu
       - vboxusers
-      - davfs2
       - plugdev
     state: present
 
