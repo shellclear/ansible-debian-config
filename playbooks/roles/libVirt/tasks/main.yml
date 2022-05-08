@@ -1,0 +1,10 @@
+---
+- when:
+    - libvirt_pool_backup is defined
+    - libvirt_pool_backup | bool == true
+  import_tasks: ./libVirtBackupPools.yml
+  tags: libVirtBackupPools
+
+- import_tasks: ./libVirtAddPools.yml
+  tags: libVirtAddPools
+            

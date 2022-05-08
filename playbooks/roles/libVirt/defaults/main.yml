@@ -1,0 +1,4 @@
+pool_names:
+  - disks
+  - images
+  - isos

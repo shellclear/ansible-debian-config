@@ -1,0 +1,6 @@
+<pool type='dir'>
+  <name>images</name>
+  <target>
+    <path>/home/ppacific/virt-manager/images</path>
+  </target>
+</pool>

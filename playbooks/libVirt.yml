@@ -1,0 +1,10 @@
+---
+- name: Configuring Libvirt
+  hosts: all
+  gather_facts: false
+  become: false
+  tags:
+    - LibVirt
+  roles:
+    - libVirt
+    

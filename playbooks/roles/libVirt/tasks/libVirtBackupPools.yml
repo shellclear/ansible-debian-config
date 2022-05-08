@@ -1,0 +1,22 @@
+---
+- name: List libvirt storage pools
+  community.libvirt.virt_pool:
+    command: list_pools
+  register: pools
+
+- name: Gather libvirt storage pools xml config file
+  community.libvirt.virt_pool:
+    command: get_xml
+    name: "{{ pool }}"
+  loop: "{{ pools['list_pools'] }}"
+  loop_control:
+    loop_var: pool
+  register: get_xml_pools
+
+- name: Create xml storage pools config file
+  copy:
+    content: "{{ pool_config['get_xml'] }}"
+    dest: "{{ role_path + '/files/' + pool_config['invocation']['module_args']['name'] }}"
+  loop: "{{ get_xml_pools['results'] }}"
+  loop_control:
+    loop_var: pool_config
