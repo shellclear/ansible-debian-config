@@ -10,3 +10,13 @@ repositories:
     state: present
     method: user
   
+  - name: kdeapps
+    repository: 'https://distribute.kde.org/kdeapps.flatpakrepo'
+    state: present
+    method: user
+
+  - name: fedora
+    repository: 'oci+https://registry.fedoraproject.org'
+    state: present
+    method: user
+    
