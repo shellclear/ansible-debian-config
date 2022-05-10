@@ -7,7 +7,13 @@ packages:
     - io.github.arunsivaramanneo.GPUViewer
     - org.gnome.DejaDup
     - org.gnome.gitlab.somas.Apostrophe    
+    - org.gnome.Dictionary
+    - org.kde.digikam
 
   gnomeNightly:
     - org.gnome.BoxesDevel
+
+  fedora: []
+
+  kdeapps: []
   

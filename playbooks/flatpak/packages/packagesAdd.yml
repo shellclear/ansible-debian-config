@@ -28,3 +28,29 @@
 #   debug:
 #     msg:
 #       - "{{ result }}"
+
+# - name: Installing flatpak packages from fedora
+#   flatpak:
+#     name: "{{ packages.fedora }}"
+#     state: present
+#     method: user
+#     remote: fedora
+#   register: result
+
+# - name: DEBUG - Installing flatpak packages from fedora
+#   debug:
+#     msg:
+#       - "{{ result }}"
+
+# - name: Installing flatpak packages from kdeapps
+#   flatpak:
+#     name: "{{ packages.kdeapps }}"
+#     state: present
+#     method: user
+#     remote: kdeapps
+#   register: result
+
+# - name: DEBUG - Installing flatpak packages from kdeapps
+#   debug:
+#     msg:
+#       - "{{ result }}"
