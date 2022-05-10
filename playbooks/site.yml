@@ -1,8 +1,8 @@
 ---
-- import_playbook: packageManager.yml
+- ansible.builtin.import_playbook: packageManager.yml
 
-- import_playbook: pythonVenv.yml
+- ansible.builtin.import_playbook: pythonVenv.yml
 
-- import_playbook: userManager.yml
+- ansible.builtin.import_playbook: userManager.yml
 
-- import_playbook: libVirt.yml
+- ansible.builtin.import_playbook: libVirt.yml
