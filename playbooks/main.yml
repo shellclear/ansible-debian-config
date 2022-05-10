@@ -1,27 +1,12 @@
 ---
-- name: Include packageManager/keys playbook
-  import_playbook: "packageManager/keys/main.yml"
-
-- name: Include packageManager/repositories playbook
-  import_playbook: "packageManager/repositories/main.yml"
-
-- name: Include packageManager/packages playbook
-  import_playbook: "packageManager/packages/main.yml"
-
 - name: Include cron playbook
-  import_playbook: "crontab/main.yml"
+  ansible.builtin.import_playbook: "crontab/main.yml"
 
 - name: Include flatpak/repositories playbook
-  import_playbook: "flatpak/repositories/main.yml"
+  ansible.builtin.import_playbook: "flatpak/repositories/main.yml"
 
 - name: Include flatpak/packages playbook
-  import_playbook: "flatpak/packages/main.yml"
-
-- name: Include python packages playbook
-  import_playbook: "pythonVenv/main.yml"
+  ansible.builtin.import_playbook: "flatpak/packages/main.yml"
 
 - name: Include Snap packages playbook
-  import_playbook: "snap/main.yml"
-
-- name: Include users playbook
-  import_playbook: "userManager/main.yml"
+  ansible.builtin.import_playbook: "snap/main.yml"
