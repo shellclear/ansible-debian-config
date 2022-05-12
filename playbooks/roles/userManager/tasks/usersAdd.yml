@@ -11,6 +11,7 @@
         name: "{{ user.name }}"
         comment: "{{ user.comment }}"
         groups: "{{ user.groups }}"
+        append: yes
         state: "{{ user.state }}"
       loop: "{{ debian_users }}"
       loop_control:
@@ -34,6 +35,7 @@
         name: "{{ user.name }}"
         comment: "{{ user.comment }}"
         groups: "{{ user.groups }}"
+        append: yes
         state: "{{ user.state }}"
       loop: "{{ fedora_users }}"
       loop_control:
@@ -49,4 +51,4 @@
   when: 
     - facts['ansible_facts']['ansible_architecture'] == "x86_64"
     - facts['ansible_facts']['ansible_distribution'] == "Fedora"
-    - facts['ansible_facts']['ansible_distribution_version'] == "35"
+    - facts['ansible_facts']['ansible_distribution_version'] == "36"
