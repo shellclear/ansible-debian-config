@@ -50,4 +50,4 @@
   when: 
     - facts['ansible_facts']['ansible_architecture'] == "x86_64"
     - facts['ansible_facts']['ansible_distribution'] == "Fedora"
-    - facts['ansible_facts']['ansible_distribution_version'] == "35"
+    - facts['ansible_facts']['ansible_distribution_version'] == "36"
