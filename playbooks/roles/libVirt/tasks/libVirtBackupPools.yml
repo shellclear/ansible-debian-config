@@ -13,10 +13,15 @@
     loop_var: pool
   register: get_xml_pools
 
+- name: Create xml backup folder
+  file:
+    path: "{{ role_path + '/backups' }}"
+    state: directory
+    
 - name: Create xml storage pools config file
   copy:
     content: "{{ pool_config['get_xml'] }}"
-    dest: "{{ role_path + '/files/' + pool_config['invocation']['module_args']['name'] }}"
+    dest: "{{ role_path + '/backups/' + pool_config['invocation']['module_args']['name'] }}"
   loop: "{{ get_xml_pools['results'] }}"
   loop_control:
     loop_var: pool_config
