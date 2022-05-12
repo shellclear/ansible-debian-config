@@ -1,3 +1,4 @@
+pool_home: /home/ppacific/virt-manager
 pool_names:
   - disks
   - images
