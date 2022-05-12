@@ -1,0 +1,9 @@
+---
+- import_tasks: ./repoAdd.yml
+  tags: flatpakRepo
+  when: repositories is defined
+
+- import_tasks: ./repoPackage.yml
+  tags: flatpakPackage
+  when: packages is defined
+  

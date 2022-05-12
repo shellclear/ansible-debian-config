@@ -1,0 +1,10 @@
+---
+- name: Configuring flatpak repositories 
+  hosts: all
+  gather_facts: false
+  become: false
+  tags:
+    - flatpakRepo
+    - flatpakPackage
+  roles:
+    - flatpak

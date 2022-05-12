@@ -1,0 +1,40 @@
+---
+repositories:
+  - name: flathub
+    repository: 'https://flathub.org/repo/flathub.flatpakrepo'
+    state: present
+    method: user
+  
+  - name: gnome-nightly
+    repository: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
+    state: present
+    method: user
+  
+  - name: kdeapps
+    repository: 'https://distribute.kde.org/kdeapps.flatpakrepo'
+    state: present
+    method: user
+
+  - name: fedora
+    repository: 'oci+https://registry.fedoraproject.org'
+    state: present
+    method: user
+
+packages:
+  flathub:
+    - net.sourceforge.Klavaro
+    - com.rafaelmardojai.Blanket
+    - com.stremio.Stremio
+    - io.github.arunsivaramanneo.GPUViewer
+    - org.gnome.DejaDup
+    - org.gnome.gitlab.somas.Apostrophe    
+    - org.gnome.Dictionary
+    - org.kde.digikam
+
+  gnomeNightly:
+    - org.gnome.BoxesDevel
+
+  fedora: []
+
+  kdeapps: []
+  

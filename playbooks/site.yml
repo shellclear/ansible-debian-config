@@ -6,3 +6,5 @@
 - ansible.builtin.import_playbook: userManager.yml
 
 - ansible.builtin.import_playbook: libVirt.yml
+
+- ansible.builtin.import_playbook: flatpak.yml

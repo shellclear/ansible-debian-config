@@ -1,0 +1,16 @@
+---
+- name: Adding flatpak repositories
+  flatpak_remote:
+    name: "{{ item['name'] }}"
+    flatpakrepo_url: "{{ item['repository'] }}"
+    state: "{{ item['state'] }}"
+    method: "{{ item['method'] }}"
+  loop: "{{ repositories }}"
+  loop_control:
+    label: "flatpak {{ item['name'] }} is {{ item['state'] }}"
+  # register: result
+
+# - name: DEBUG - Creating additional flatpak repositories 
+#   debug:
+#     msg:
+#       - "{{ result }}"
