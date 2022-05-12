@@ -1,5 +1,5 @@
 ---
-- name: Check conditions before run the tasks
+- name: Fail if variables are not defined before to run the tasks
   fail:
     msg: Please define debian_users or fedora_users vars for userManager role
   when:
