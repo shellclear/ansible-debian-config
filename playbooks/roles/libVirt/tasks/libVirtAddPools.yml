@@ -3,7 +3,7 @@
   community.libvirt.virt_pool:
     name: "{{ pool_name }}"
     state: present
-    xml: "{{ lookup('file', role_path + '/files/' + pool_name) }}"
+    xml: "{{ lookup('template', 'pool.j2') }}"
   loop: "{{ pool_names }}"
   loop_control:
     loop_var: pool_name
