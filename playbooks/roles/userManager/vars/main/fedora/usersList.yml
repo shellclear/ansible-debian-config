@@ -9,6 +9,5 @@ fedora_users:
       - libvirt
       - vboxusers
       - plugdev
+      - wheel
     state: present
-
-    
