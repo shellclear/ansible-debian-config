@@ -1,0 +1,6 @@
+---
+- name: Configuring the list of snap packets to install
+  include_tasks: ./snapDeps.yml
+
+- name: Configuring the list of snap packets to install
+  include_tasks: ./snapAdd.yml

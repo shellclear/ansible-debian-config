@@ -1,0 +1,10 @@
+---
+- name: Configuring snap repositories and packets
+  hosts: all
+  gather_facts: true
+  become: true
+  tags:
+    - snapRepo
+    - snapPackage
+  roles:
+    - snap

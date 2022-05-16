@@ -1,0 +1,5 @@
+---
+snaps_debian:
+    - name: dell-bios-fan-control
+      state: present
+              
