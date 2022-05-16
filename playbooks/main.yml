@@ -1,6 +1,0 @@
----
-- name: Include cron playbook
-  ansible.builtin.import_playbook: "crontab/main.yml"
-
-- name: Include Snap packages playbook
-  ansible.builtin.import_playbook: "snap/main.yml"
