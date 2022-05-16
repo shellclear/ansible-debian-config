@@ -1,0 +1,9 @@
+---
+- name: Configuring crontab
+  hosts: all
+  gather_facts: true
+  become: true
+  tags:
+    - crontab
+  roles:
+    - cronTasks

@@ -8,3 +8,5 @@
 - ansible.builtin.import_playbook: libVirt.yml
 
 - ansible.builtin.import_playbook: flatpak.yml
+
+- ansible.builtin.import_playbook: cronTasks.yml

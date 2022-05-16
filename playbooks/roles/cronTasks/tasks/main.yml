@@ -1,0 +1,94 @@
+---
+- name: Gather Facts from {{ inventory_hostname }} target 
+  ansible.builtin.setup:
+    gather_subset:
+      - min
+  register: facts
+
+- when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Debian"
+    - facts['ansible_facts']['ansible_distribution_version'] == "11"
+  block:
+    - name: Creating cron tasks
+      cron:
+        name: "{{ item[1]['name'] }}"
+        user: "{{ item[0]['user'] }}"
+        # cron_file: "/tmp/crontab"
+        state: "{{ item[1]['state'] }}"
+        minute: "{{ item[1]['m'] }}"
+        hour: "{{ item[1]['h'] }}"
+        day: "{{ item[1]['dom'] }}"
+        month: "{{ item[1]['mon'] }}"
+        weekday: "{{ item[1]['dow'] }}"
+        job: "{{ item[1]['job'] }}"
+      when: 
+        - item[1]['special_time'] is not defined
+      loop: "{{ crons_debian | subelements('tasks') }}"
+      loop_control:
+        label: "{{ item[1]['name'] }} is {{ item[1]['state'] }}"
+      # register: result
+
+    - name: "Creating cron tasks with special_time"
+      cron:
+        name: "{{ item[1]['name'] }}"
+        user: "{{ item[0]['user'] }}"
+        # cron_file: "/tmp/crontab"
+        state: "{{ item[1]['state'] }}"
+        special_time: "{{ item[1]['special_time'] }}"
+        job: "{{ item[1]['job'] }}"
+      when: 
+        - item[1]['special_time'] is defined
+      loop: "{{ crons_debian | subelements('tasks') }}"
+      loop_control:
+        label: "{{ item[1]['name'] }} is {{ item[1]['state'] }}"  
+      # register: result
+
+    # - name: DEBUG - Creating cron tasks
+    #   debug:
+    #     msg:"
+    #       - "{{ result }}
+
+- when: 
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Fedora"
+    - facts['ansible_facts']['ansible_distribution_version'] == "36"
+  block:
+    - name: Creating cron tasks
+      cron:
+        name: "{{ item[1]['name'] }}"
+        user: "{{ item[0]['user'] }}"
+        # cron_file: "/tmp/crontab"
+        state: "{{ item[1]['state'] }}"
+        minute: "{{ item[1]['m'] }}"
+        hour: "{{ item[1]['h'] }}"
+        day: "{{ item[1]['dom'] }}"
+        month: "{{ item[1]['mon'] }}"
+        weekday: "{{ item[1]['dow'] }}"
+        job: "{{ item[1]['job'] }}"
+      when: 
+        - item[1]['special_time'] is not defined
+      loop: "{{ crons_fedora | subelements('tasks') }}"
+      loop_control:
+        label: "{{ item[1]['name'] }} is {{ item[1]['state'] }}"
+      # register: result
+
+    - name: "Creating cron tasks with special_time"
+      cron:
+        name: "{{ item[1]['name'] }}"
+        user: "{{ item[0]['user'] }}"
+        # cron_file: "/tmp/crontab"
+        state: "{{ item[1]['state'] }}"
+        special_time: "{{ item[1]['special_time'] }}"
+        job: "{{ item[1]['job'] }}"
+      when: 
+        - item[1]['special_time'] is defined
+      loop: "{{ crons_fedora | subelements('tasks') }}"
+      loop_control:
+        label: "{{ item[1]['name'] }} is {{ item[1]['state'] }}"  
+      # register: result
+
+    # - name: DEBUG - Creating cron tasks
+    #   debug:
+    #     msg:"
+    #       - "{{ result }}

@@ -1,0 +1,66 @@
+---
+crons_fedora:
+  - user: ppacific
+    tasks:
+      # Create a list of installed packets on the system
+      - name: "Create a List of installed packets on the system"
+        state: present
+        m: "00"
+        h: "22"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: '/usr/bin/rpm -qa > $HOME/rpm-installed-$(date +\%Y-\%m-\%d_\%H:\%M).log'
+
+      # Stage files from ~/.scripts git folder 
+      - name: "Stage files from ~/.scripts git folder"
+        state: present
+        m: "*/10"
+        h: "*"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: 'cd $HOME/.scripts/ && git add . && git commit -am "backup-scripts-$(date +\%Y-\%m-\%d-\%H:\%M)"'
+
+      - name: "Stage files from ~/.scripts git folder using special_time"
+        state: present
+        special_time: reboot
+        job: 'sleep 300 && cd $HOME/.scripts/ && git add . && git commit -am "backup-scripts-$(date +\%Y-\%m-\%d-\%H:\%M)"'
+
+      # Update softwares
+      - name: "Update docker-machine"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-docker-machine"
+        
+      - name: "Update duf"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-duf"
+
+      - name: "Update helm"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-helm"                     
+
+      - name: "Update kubectl"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-kubectl"             
+
+      - name: "Update docker-compose"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-docker-compose"             
+
+      - name: "Update minikube"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-minikube"
+
+  # # Its possible to create cron tasks for other users:
+  # - user: root <---
+  #   tasks:
+  #     # Logger
+  #     - name: "Logger"
+  # ...

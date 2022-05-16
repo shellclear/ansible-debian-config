@@ -1,0 +1,112 @@
+---
+crons_debian:
+  - user: paulo
+    tasks:
+      # Create a list of installed packets on the system
+      - name: "Create a List of installed packets on the system"
+        state: present
+        m: "00"
+        h: "22"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: '/usr/bin/dpkg --get-selections > $HOME/data/backups/logs/dpkg-get-selections-$(date +\%Y-\%m-\%d_\%H:\%M).log'
+
+      # Stage files from ~/.scripts git folder 
+      - name: "Stage files from ~/.scripts git folder"
+        state: present
+        m: "*/10"
+        h: "*"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: 'cd $HOME/.scripts/ && git add . && git commit -am "backup-scripts-$(date +\%Y-\%m-\%d-\%H:\%M)"'
+
+      - name: "Stage files from ~/.scripts git folder using special_time"
+        state: present
+        special_time: reboot
+        job: 'sleep 300 && cd $HOME/.scripts/ && git add . && git commit -am "backup-scripts-$(date +\%Y-\%m-\%d-\%H:\%M)"'
+
+      # Create a system backup ### SUBSTITUIDO POR UM TIMER DO SYSTEMD ###
+      - name: "Create a system backup"
+        state: absent
+        m: "00"
+        h: "22"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: "sudo /home/paulo/bin/backup-system-root.sh" 
+
+      # Create a user backup ### SUBSTITUIDO POR UM TIMER DO SYSTEMD ###
+      - name: "Create a user backup"
+        state: absent
+        m: "00"
+        h: "21"
+        dom: "*"
+        mon: "*"
+        dow: "*"
+        job: "/home/paulo/bin/backup-home.sh"
+
+      # Sync vault-list command
+      - name: "Sync vault-list command"
+        state: absent
+        m: "00"
+        h: "9-14,15-18/1"
+        dom: "*"
+        mon: "*"
+        dow: "1,2,3,4,5"
+        job: "ver --sync >/dev/null 2>&1"     
+     
+      # Run Fix to command-not-found
+      - name: "Run Fix to command-not-found"
+        state: present
+        special_time: hourly
+        job: "/home/paulo/bin/command-not-found.sh > /dev/null 2>&1"
+        
+      - name: "Run Fix to command-not-found using special_time"
+        state: present
+        special_time: reboot
+        job: "/home/paulo/bin/command-not-found.sh > /dev/null 2>&1"
+
+      # Update softwares
+      - name: "Update docker-machine"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-docker-machine"
+        
+      - name: "Update duf"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-duf"
+
+      - name: "Update helm"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-helm"                     
+
+      - name: "Update kubectl"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-kubectl"             
+
+      - name: "Update docker-compose"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-docker-compose"             
+
+      - name: "Update minikube"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && /home/paulo/bin/update-minikube"
+
+      - name: "Disable BIOS fan control"
+        state: present
+        special_time: reboot
+        job: "sleep 60 && sudo /snap/bin/dell-bios-fan-control 0"
+
+  # # Its possible to create cron tasks for other users:
+  # - user: root <---
+  #   tasks:
+  #     # Logger
+  #     - name: "Logger"
+  # ...
