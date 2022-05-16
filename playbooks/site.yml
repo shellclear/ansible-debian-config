@@ -10,3 +10,5 @@
 - ansible.builtin.import_playbook: flatpak.yml
 
 - ansible.builtin.import_playbook: cronTasks.yml
+
+- ansible.builtin.import_playbook: snap.yml
