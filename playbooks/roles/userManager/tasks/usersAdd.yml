@@ -13,6 +13,8 @@
         groups: "{{ user.groups }}"
         append: yes
         state: "{{ user.state }}"
+        password: "{{ user.password }}"
+        update_password: on_create
       loop: "{{ debian_users }}"
       loop_control:
         loop_var: user
@@ -37,6 +39,8 @@
         groups: "{{ user.groups }}"
         append: yes
         state: "{{ user.state }}"
+        password: "{{ user.password }}"
+        update_password: on_create
       loop: "{{ fedora_users }}"
       loop_control:
         loop_var: user

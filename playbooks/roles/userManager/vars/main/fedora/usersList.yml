@@ -1,5 +1,6 @@
 fedora_users:
   - name: ppacific
+    password: "{{ users_password['ppacific'] | password_hash('sha512') }}"
     comment: "Paulo Pacifico"
     groups:
       - systemd-journal

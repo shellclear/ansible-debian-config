@@ -1,5 +1,6 @@
 debian_users:
   - name: paulo
+    password: "{{ users_password['paulo'] | password_hash('sha512') }}"
     comment: "Paulo Roberto"
     groups:
       - cdrom
@@ -23,5 +24,3 @@ debian_users:
       - davfs2
       - plugdev
     state: present
-
-    

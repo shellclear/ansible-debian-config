@@ -3,8 +3,9 @@
   hosts: all
   gather_facts: false
   become: true
+  vars_files:
+    - users_password
   tags:
     - userManager
   roles:
-    - userManager
-    
+    - role: userManager
