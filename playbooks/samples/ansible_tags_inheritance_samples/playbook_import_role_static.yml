@@ -1,0 +1,33 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html#tag-inheritance-adding-tags-to-multiple-tasks
+
+# If you want to apply the same tag or 
+# tags to multiple tasks without adding
+# a tags line to every task, you can 
+# define the tags at the level of your play
+# or block, or when you add a role or import
+# a file.
+
+# Ansible applies the tags down the dependency
+# chain to all child tasks. With roles and 
+# imports, Ansible appends the tags set by the
+# roles section or import to any tags set on
+# individual tasks or blocks within the role
+# or imported file. This is called tag
+# inheritance. Tag inheritance is convenient,
+# because you do not have to tag every task. 
+# However, the tags still apply to the tasks 
+# individually.
+
+- name: Static import
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - name: role1
+      tags:
+        - role1_role2
+        - role1
+
+    - name: role2
+      tags:
+        - role1_role2
+        - role2

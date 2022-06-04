@@ -1,0 +1,9 @@
+---
+# tasks file for role1
+- debug:
+    msg: "Role1 task1"
+
+- debug:
+    msg: "Role1 task2"
+  tags:
+    - role1_task2

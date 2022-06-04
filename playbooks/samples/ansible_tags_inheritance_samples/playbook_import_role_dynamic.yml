@@ -1,0 +1,58 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html#tag-inheritance-for-includes-blocks-and-the-apply-keyword
+
+# By default, Ansible does not apply 
+# tag inheritance to dynamic re-use with
+# include_role and include_tasks.
+# If you add tags to an include, they
+# apply only to the include itself, not
+# to any tasks in the included file or role. 
+
+- name: Dinamic import
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: role1
+      tags: 
+        - role1_role2
+        - role1
+
+    - include_role:
+        name: role2
+      tags:
+        - role1_role2
+        - role2
+
+# If you want tag inheritance, you probably
+# want to use imports. However, using both
+# includes and imports in a single playbook
+# can lead to difficult-to-diagnose bugs.
+# For this reason, if your playbook uses
+# include_* to re-use roles or tasks, and
+# you need tag inheritance on one
+# include, Ansible offers two workarounds.
+# You can use the apply keyword
+
+- name: Dinamic import with tag inheritance
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: role1
+        apply:
+          tags:
+            - role1_role2
+            - role1
+      tags:
+        - role1_role2
+        - role1
+
+    - include_role:
+        name: role2
+        apply:
+          tags:
+            - role1_role2
+            - role1
+      tags:
+        - role1_role2
+        - role1
