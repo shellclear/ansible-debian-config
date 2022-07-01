@@ -64,7 +64,7 @@ debian_packages:
     - packeth
     - parallel
     - pass
-    - pavucontrol
+    # - pavucontrol
     - pciutils
     - pigz
     - plymouth-themes
