@@ -23,16 +23,16 @@ repositories:
 packages:
   flathub:
     - net.sourceforge.Klavaro
-    - com.rafaelmardojai.Blanket
+    # - com.rafaelmardojai.Blanket
     - com.stremio.Stremio
-    - io.github.arunsivaramanneo.GPUViewer
+    # - io.github.arunsivaramanneo.GPUViewer
     - org.gnome.DejaDup
     - org.gnome.gitlab.somas.Apostrophe    
     - org.gnome.Dictionary
-    - org.kde.digikam
+    # - org.kde.digikam
 
   gnomeNightly:
-    - org.gnome.BoxesDevel
+    # - org.gnome.BoxesDevel
 
   fedora: []
 
