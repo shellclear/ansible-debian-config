@@ -88,6 +88,7 @@ debian_repositories:
 
     - name: megasync
       repository: 'deb https://mega.nz/linux/MEGAsync/Debian_11/ ./'
+      state: absent
 
     - name: mysql
       repository: 'deb http://repo.mysql.com/apt/debian/ buster mysql-8.0'
@@ -126,6 +127,7 @@ debian_repositories:
 
     - name: skype-stable
       repository: 'deb [arch=amd64] https://repo.skype.com/deb stable main'
+      state: absent
 
     - name: snapshot-jessie
       repository: 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20180623/ jessie main contrib non-free'
@@ -156,6 +158,7 @@ debian_repositories:
                   # deb https://linux.teamviewer.com/deb stable main
                   # deb https://linux.teamviewer.com/deb preview main
                   # deb https://linux.teamviewer.com/deb development main
+      state: absent
 
     - name: veeam
       repository: 'deb [arch=amd64] http://repository.veeam.com/backup/linux/agent/dpkg/debian/public stable veeam'     
@@ -163,7 +166,8 @@ debian_repositories:
 
     - name: virtualbox
       repository: 'deb https://download.virtualbox.org/virtualbox/debian bullseye contrib'  
-
+      state: absent
+      
     - name: vscode
       repository: 'deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main'
 

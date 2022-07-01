@@ -5,6 +5,7 @@ debian_keys:
 
     - url: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
       name: virtualbox
+      state: absent
 
     - url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
       name: atom
@@ -29,6 +30,7 @@ debian_keys:
 
     - url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
       name: skype
+      state: absent
 
     - url: 'https://packages.microsoft.com/keys/microsoft.asc'
       name: vscode
@@ -77,6 +79,7 @@ debian_keys:
 
     - url: 'https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc'
       name: teamviewer
+      state: absent
 
     - url: 'https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg'
       name: vscodium
@@ -92,6 +95,7 @@ debian_keys:
 
     - url: 'https://mega.nz/keys/MEGA_signing.key'
       name: megasync
+      state: absent
 
     - keyserver: 'hkp://keyserver.ubuntu.com:11371'
       id: 96B9CD7C22E2C8C5

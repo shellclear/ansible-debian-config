@@ -20,9 +20,8 @@ debian_packages:
     - dbeaver-ce
     - debootstrap
     - default-jre
-    - deja-dup
+    # - deja-dup
     - docker-ce
-    - duf
     - etckeeper
     - exa
     - fbterm
@@ -46,15 +45,15 @@ debian_packages:
     - linux-headers-amd64
     - lm-sensors
     - lsof
-    - megasync
+    # - megasync
     - memtest86+
     - molly-guard
     - mtr
-    - nautilus-dropbox
-    - nautilus-megasync
+    # - nautilus-dropbox
+    # - nautilus-megasync
     - neofetch
     - network-manager-openvpn-gnome
-    - nextcloud-desktop
+    # - nextcloud-desktop
     - nfs-kernel-server
     - nmap
     - ntfs-3g
@@ -81,7 +80,7 @@ debian_packages:
     - rsync
     - secure-delete
     - sipcalc
-    - skypeforlinux
+    # - skypeforlinux
     - slirp4netns
     - smartmontools
     - socat
@@ -90,7 +89,7 @@ debian_packages:
     - strace
     - sysstat
     - tcpdump
-    - teamviewer
+    # - teamviewer
     - telnet
     - testdisk
     - tmux
@@ -103,7 +102,7 @@ debian_packages:
     - upower
     - vim
     - virt-manager
-    - virtualbox-6.1
+    # - virtualbox-6.1
     - vlc
     - vnstat
     - wget

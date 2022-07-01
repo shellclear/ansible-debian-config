@@ -17,8 +17,8 @@
       state: latest
       update_cache: yes
     retries: 10
-    until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
-    register: result
+  #   until: result is success or ('Failed to lock apt for exclusive operation' not in result.msg and '/var/lib/dpkg/lock' not in result.msg)
+  #   register: result
 
   # - name: DEBUG - Installing debian packages
   #   debug:

@@ -49,7 +49,7 @@ fedora_keys:
 
     - url: 'https://keys.anydesk.com/repos/RPM-GPG-KEY' 
       name: anydesk
-      state: present
+      state: absent
 
     # - url: 'https://packages.gitlab.com/gitlab/gitlab-ee/gpgkey'
     #   name: gitlab-ce/gitlab-ee
