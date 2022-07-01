@@ -4,7 +4,7 @@
   gather_facts: false
   become: true
   vars_files:
-    - users_password
+    - users_password.yml
   tags:
     - userManager
   roles:
