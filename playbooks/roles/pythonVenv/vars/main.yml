@@ -45,3 +45,7 @@ venvs:
       state: present
       name:
         - ansible
+    - venv: ansible-core
+      state: present
+      name:
+        - ansible
