@@ -117,4 +117,5 @@ debian_packages:
     - packer
     - vagrant
     - consul
+    - clusterssh
  

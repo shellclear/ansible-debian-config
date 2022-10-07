@@ -104,3 +104,4 @@ fedora_packages:
     # - zram-tools
     # - polychromatic
     # - openrazer-meta
+    - clusterssh
