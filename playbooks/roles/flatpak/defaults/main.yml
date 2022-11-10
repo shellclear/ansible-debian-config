@@ -30,6 +30,7 @@ packages:
     - org.gnome.gitlab.somas.Apostrophe    
     - org.gnome.Dictionary
     # - org.kde.digikam
+    - io.podman_desktop.PodmanDesktop
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
