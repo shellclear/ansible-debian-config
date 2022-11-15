@@ -118,4 +118,5 @@ debian_packages:
     - vagrant
     - consul
     - clusterssh
- 
+    - libnss3-tools
+    
