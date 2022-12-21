@@ -119,4 +119,5 @@ debian_packages:
     - consul
     - clusterssh
     - libnss3-tools
+    - connect-proxy
     
