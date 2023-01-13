@@ -120,4 +120,5 @@ debian_packages:
     - clusterssh
     - libnss3-tools
     - connect-proxy
+    - python3-guestfs
     
