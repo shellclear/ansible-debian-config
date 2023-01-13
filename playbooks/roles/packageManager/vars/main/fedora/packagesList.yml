@@ -105,3 +105,5 @@ fedora_packages:
     # - polychromatic
     # - openrazer-meta
     - clusterssh
+    - python3-libguestfs.x86_64
+
