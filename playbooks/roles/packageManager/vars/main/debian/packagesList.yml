@@ -121,4 +121,5 @@ debian_packages:
     - libnss3-tools
     - connect-proxy
     - python3-guestfs
+    - wit
     
