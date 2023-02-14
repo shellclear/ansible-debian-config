@@ -85,10 +85,6 @@ debian_keys:
       name: vscodium
       state: absent
 
-    - url: 'https://build.opensuse.org/projects/home:jgeboski/public_key.pub' 
-      name: facebook-purple
-      state: absent
-
     - url: 'https://download.opensuse.org/repositories/home:stevenpusser/Debian_10/Release.key'
       name: palemoon
       state: absent
