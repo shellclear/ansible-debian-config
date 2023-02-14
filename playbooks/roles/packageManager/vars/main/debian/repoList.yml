@@ -186,4 +186,4 @@ debian_repositories:
       state: absent
 
     - name: hashicorp
-      repository: "deb [arch=amd64] https://apt.releases.hashicorp.com bullseye main"
+      repository: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg,arch=amd64] https://apt.releases.hashicorp.com bullseye main"
