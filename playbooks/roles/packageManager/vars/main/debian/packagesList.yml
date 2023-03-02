@@ -122,4 +122,6 @@ debian_packages:
     - connect-proxy
     - python3-guestfs
     - wit
+    - how-can-i-help
+
     
