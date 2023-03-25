@@ -27,7 +27,7 @@ debian_packages:
     - fbterm
     - fdupes
     - fio
-    - flameshot
+    # - flameshot
     - flatpak
     - git
     - gnome-shell-extension-gpaste
