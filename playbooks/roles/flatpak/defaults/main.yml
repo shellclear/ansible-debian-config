@@ -34,6 +34,7 @@ packages:
     - app.xemu.xemu
     - org.libretro.RetroArch
     - org.remmina.Remmina
+    - org.flameshot.Flameshot
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
