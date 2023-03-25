@@ -31,6 +31,9 @@ packages:
     - org.gnome.Dictionary
     # - org.kde.digikam
     - io.podman_desktop.PodmanDesktop
+    - app.xemu.xemu
+    - org.libretro.RetroArch
+    - org.remmina.Remmina
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
