@@ -35,6 +35,7 @@ packages:
     - org.libretro.RetroArch
     - org.remmina.Remmina
     - org.flameshot.Flameshot
+    - org.yuzu_emu.yuzu
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
