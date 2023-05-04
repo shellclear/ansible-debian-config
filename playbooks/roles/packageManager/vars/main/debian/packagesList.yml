@@ -124,4 +124,5 @@ debian_packages:
     - wit
     - how-can-i-help
     - cmake
+    - gcc-multilib
     
