@@ -36,6 +36,11 @@ packages:
     - org.remmina.Remmina
     - org.flameshot.Flameshot
     - org.yuzu_emu.yuzu
+    - net.pcsx2.PCSX2
+    - org.DolphinEmu.dolphin-emu
+    - org.flameshot.Flameshot
+    - org.flycast.Flycast
+    - org.ppsspp.PPSSPP
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
