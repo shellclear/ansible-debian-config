@@ -166,7 +166,7 @@ debian_repositories:
 
     - name: virtualbox
       repository: 'deb https://download.virtualbox.org/virtualbox/debian bullseye contrib'  
-      state: absent
+      state: present
       
     - name: vscode
       repository: 'deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main'
@@ -187,3 +187,4 @@ debian_repositories:
 
     - name: hashicorp
       repository: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg,arch=amd64] https://apt.releases.hashicorp.com bullseye main"
+      state: absent

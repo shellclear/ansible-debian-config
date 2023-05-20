@@ -111,12 +111,12 @@ debian_packages:
     - zram-tools
     - polychromatic
     - openrazer-meta
-    - terraform
-    - nomad
-    - vault
-    - packer
-    - vagrant
-    - consul
+    # - terraform
+    # - nomad
+    # - vault
+    # - packer
+    # - vagrant
+    # - consul
     - clusterssh
     - libnss3-tools
     - connect-proxy
