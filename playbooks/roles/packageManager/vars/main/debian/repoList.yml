@@ -165,7 +165,7 @@ debian_repositories:
       state: absent
 
     - name: virtualbox
-      repository: 'deb https://download.virtualbox.org/virtualbox/debian bullseye contrib'  
+      repository: 'deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian bullseye contrib'  
       state: present
       
     - name: vscode
