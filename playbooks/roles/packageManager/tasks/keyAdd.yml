@@ -20,6 +20,29 @@
     - facts['ansible_facts']['ansible_architecture'] == "x86_64"
     - facts['ansible_facts']['ansible_distribution'] == "Debian"
     - facts['ansible_facts']['ansible_distribution_version'] == "11"
+    - "'url' not in key"
+
+- name: "Add apt keys for {{ inventory_hostname }} target using gpg"
+  ansible.builtin.uri:
+    url: "{{ key['url'] | default(omit) }}"
+    return_content: true
+  loop: "{{ debian_keys }}"
+  loop_control:
+    loop_var: key
+    label: "{{ key['name'] }} key is {{ key['state'] | default('present') }}"
+  when:
+    - facts['ansible_facts']['ansible_architecture'] == "x86_64"
+    - facts['ansible_facts']['ansible_distribution'] == "Debian"
+    - facts['ansible_facts']['ansible_distribution_version'] == "11"
+    - "'url' in key"
+  register: keys_returned
+
+- debug:
+    msg: "{{ keys_returned }}"
+
+- pause:
+    
+
 
 - block: 
     - name: Add rpm keys for {{ inventory_hostname }} target

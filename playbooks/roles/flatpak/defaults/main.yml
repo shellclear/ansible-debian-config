@@ -41,7 +41,8 @@ packages:
     - org.flameshot.Flameshot
     - org.flycast.Flycast
     - org.ppsspp.PPSSPP
-    - com.heroicgameslauncher.hgl
+    # - com.heroicgameslauncher.hgl
+    - net.rpcs3.RPCS3
 
   gnomeNightly:
     # - org.gnome.BoxesDevel
